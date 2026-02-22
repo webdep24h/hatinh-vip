@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hatinh.vip – Làm Website Miễn Phí Cho Quán Ở Hà Tĩnh</title>
+  <meta name="description" content="Hatinh.vip – Nền tảng làm website miễn phí cho quán ăn, cửa hàng, doanh nghiệp tại Hà Tĩnh. Nhanh – Gọn – Không tốn tiền." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #e02020;
+      --red2:   #c01010;
+      --gold:   #f5a623;
+      --dark:   #1a1a2e;
+      --dark2:  #16213e;
+      --mid:    #0f3460;
+      --light:  #f4f6fb;
+      --white:  #ffffff;
+      --text:   #2d3748;
+      --muted:  #718096;
+      --radius: 16px;
+      --shadow: 0 8px 32px rgba(0,0,0,.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .tag {
+      display: inline-block;
+      background: rgba(224,32,32,.10);
+      color: var(--red);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.55rem, 4vw, 2.1rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 36px;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(26,26,46,.96);
+      backdrop-filter: blur(10px);
+      padding: 14px 20px;
+    }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.45rem; font-weight: 900; color: var(--white);
+      text-decoration: none; letter-spacing: -.5px;
+    }
+    .logo span { color: var(--gold); }
+    .nav-cta {
+      background: var(--red);
+      color: var(--white);
+      font-weight: 700;
+      font-size: .88rem;
+      padding: 9px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--red2); }
+
+    /* ===== HERO ===== */
+    #hero {
+      background: linear-gradient(145deg, var(--dark) 0%, var(--dark2) 40%, var(--mid) 100%);
+      padding: 120px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 30%, rgba(245,166,35,.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(224,32,32,.10) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px;
+      color: var(--gold);
+      font-size: .82rem; font-weight: 600;
+      padding: 7px 18px;
+      margin-bottom: 22px;
+    }
+    .hero-badge i { font-size: .75rem; }
+    #hero h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    #hero h1 span { color: var(--gold); }
+    .hero-desc {
+      color: rgba(255,255,255,.75);
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      max-width: 600px; margin: 0 auto 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 4px 20px rgba(224,32,32,.45);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(224,32,32,.55); }
+    .btn-secondary {
+      background: rgba(255,255,255,.10);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 30px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.25);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.18); }
+    .hero-trust {
+      margin-top: 48px;
+      display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      display: flex; flex-direction: column; align-items: center;
+      color: rgba(255,255,255,.65); font-size: .82rem;
+    }
+    .hero-trust-item strong {
+      font-size: 1.6rem; font-weight: 900; color: var(--gold); display: block; line-height: 1.1;
+    }
+
+    /* ===== PROBLEM ===== */
+    #problem {
+      background: var(--light);
+      padding: 80px 20px;
+    }
+    .problem-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .problem-steps {
+      display: flex; flex-direction: column; gap: 0;
+      margin: 28px 0;
+    }
+    .step-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-num {
+      width: 38px; height: 38px; min-width: 38px;
+      background: var(--mid);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .95rem;
+    }
+    .step-text { font-size: 1rem; color: var(--text); padding-top: 6px; }
+    .problem-note {
+      background: linear-gradient(135deg, #fff5f5, #fff0db);
+      border-left: 4px solid var(--red);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-top: 10px;
+      font-size: .97rem;
+      color: var(--text);
+    }
+    .problem-note strong { color: var(--red); }
+
+    /* ===== WHAT IS ===== */
+    #whatis {
+      padding: 80px 20px;
+      background: var(--white);
+    }
+    .whatis-card {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 100%);
+      border-radius: 20px;
+      padding: 44px 40px;
+      color: var(--white);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .whatis-card::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: rgba(245,166,35,.12);
+      border-radius: 50%;
+    }
+    .whatis-card .big-q {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .whatis-card h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 900; line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .whatis-card p {
+      color: rgba(255,255,255,.80);
+      font-size: 1rem; max-width: 540px; margin: 0 auto 30px;
+    }
+    .whatis-needs {
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .need-chip {
+      background: rgba(255,255,255,.12);
+      border: 1.5px solid rgba(255,255,255,.22);
+      border-radius: 100px;
+      padding: 10px 22px;
+      font-size: .95rem; font-weight: 600; color: var(--white);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .need-chip i { color: var(--gold); }
+
+    /* ===== EXAMPLE DOMAIN ===== */
+    #domains {
+      background: var(--light);
+      padding: 80px 20px;
+    }
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .domain-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border: 1.5px solid #e8edf5;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .domain-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.11); }
+    .domain-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    .domain-card h4 { font-size: .93rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .domain-card .domain-url {
+      font-size: .82rem; color: var(--red); font-weight: 600;
+      font-family: monospace;
+    }
+    .domain-inside {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+    }
+    .domain-inside h3 {
+      font-size: 1.15rem; font-weight: 800; color: var(--dark);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .inside-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .inside-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .98rem; color: var(--text);
+    }
+    .inside-list li i {
+      width: 32px; height: 32px;
+      background: #f0f7ff;
+      color: var(--mid);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; flex-shrink: 0;
+    }
+
+    /* ===== FREE ===== */
+    #free {
+      padding: 80px 20px;
+      background: var(--white);
+    }
+    .free-banner {
+      background: linear-gradient(135deg, #fff5f5 0%, #fff8ec 100%);
+      border: 2px solid #fde8e8;
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+    }
+    .free-banner .price {
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .free-banner .price-label {
+      font-size: 1.1rem; font-weight: 700; color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .free-list {
+      display: flex; flex-direction: column; gap: 12px;
+      max-width: 360px; margin: 0 auto 32px;
+      text-align: left;
+    }
+    .free-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .97rem; color: var(--text);
+      list-style: none;
+    }
+    .free-list li i { color: #22c55e; font-size: 1rem; }
+
+    /* ===== VIP EXPLAIN ===== */
+    #vip {
+      background: linear-gradient(135deg, var(--gold) 0%, #f97316 100%);
+      padding: 70px 20px;
+      text-align: center;
+    }
+    .vip-inner { max-width: 680px; margin: 0 auto; }
+    #vip h2 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 900; color: var(--dark); margin-bottom: 14px; }
+    #vip p { color: rgba(26,26,46,.80); font-size: 1rem; margin-bottom: 28px; }
+    .vip-meaning {
+      background: rgba(255,255,255,.35);
+      border-radius: 14px;
+      padding: 28px 32px;
+      display: inline-block;
+      text-align: center;
+    }
+    .vip-letters {
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+    .vip-letters span { color: var(--white); text-shadow: 0 2px 8px rgba(0,0,0,.2); }
+    .vip-sub { font-size: 1rem; font-weight: 700; color: var(--dark2); }
+
+    /* ===== WHO ===== */
+    #who {
+      background: var(--light);
+      padding: 80px 20px;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .who-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+      border: 1.5px solid #edf2f7;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .who-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.10); }
+    .who-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .who-card span { font-size: .92rem; font-weight: 700; color: var(--dark); display: block; }
+
+    /* ===== BENEFITS ===== */
+    #benefits {
+      padding: 80px 20px;
+      background: var(--white);
+    }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .benefit-card {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 26px 24px;
+      border: 1.5px solid #e8edf5;
+      transition: border-color .2s, transform .2s;
+    }
+    .benefit-card:hover { border-color: var(--red); transform: translateY(-3px); }
+    .benefit-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 14px;
+    }
+    .benefit-card h4 { font-size: .97rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .benefit-card p { font-size: .88rem; color: var(--muted); line-height: 1.55; }
+
+    /* ===== UPGRADE (optional) ===== */
+    #upgrade {
+      background: var(--light);
+      padding: 80px 20px;
+    }
+    .upgrade-wrap {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 44px 40px;
+      box-shadow: var(--shadow);
+    }
+    .upgrade-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+    @media(max-width: 580px) { .upgrade-row { grid-template-columns: 1fr; } }
+    .upgrade-col {
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .upgrade-col.free-col {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+    }
+    .upgrade-col.paid-col {
+      background: #eff6ff;
+      border: 2px solid #93c5fd;
+    }
+    .upgrade-col h4 {
+      font-size: 1rem; font-weight: 800; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .upgrade-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .upgrade-col ul li {
+      font-size: .9rem; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .upgrade-col ul li i { font-size: .85rem; }
+
+    /* ===== TIMELINE ===== */
+    #timeline {
+      padding: 80px 20px;
+      background: var(--white);
+    }
+    .tl-wrap {
+      max-width: 560px; margin: 32px auto 0;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .tl-item {
+      display: flex; gap: 20px; padding-bottom: 30px; position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-line {
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .tl-dot {
+      width: 42px; height: 42px; min-width: 42px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 800; color: var(--white);
+      background: var(--red);
+      box-shadow: 0 4px 14px rgba(224,32,32,.35);
+      z-index: 1;
+    }
+    .tl-connector {
+      width: 2px; flex: 1;
+      background: #e2e8f0;
+      margin-top: 4px;
+    }
+    .tl-item:last-child .tl-connector { display: none; }
+    .tl-body { padding-top: 8px; }
+    .tl-body h4 { font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .tl-body p { font-size: .9rem; color: var(--muted); }
+
+    /* ===== WHY ===== */
+    #why {
+      background: var(--dark);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    #why h2 { color: var(--white); margin-bottom: 14px; }
+    #why h2 span { color: var(--gold); }
+    #why p { color: rgba(255,255,255,.70); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+
+    /* ===== CTA ===== */
+    #cta {
+      background: linear-gradient(145deg, var(--red2) 0%, var(--red) 50%, #f97316 100%);
+      padding: 90px 20px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    #cta h2 {
+      font-size: clamp(1.7rem, 5vw, 2.6rem);
+      font-weight: 900; color: var(--white);
+      margin-bottom: 14px; position: relative;
+    }
+    #cta p {
+      color: rgba(255,255,255,.85); font-size: 1.05rem;
+      max-width: 500px; margin: 0 auto 36px; position: relative;
+    }
+    .cta-form {
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 20px;
+      padding: 36px 32px;
+      max-width: 500px; margin: 0 auto 28px;
+      position: relative;
+    }
+    .form-group { margin-bottom: 16px; text-align: left; }
+    .form-group label {
+      display: block; font-size: .85rem; font-weight: 700;
+      color: rgba(255,255,255,.85); margin-bottom: 6px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,.15);
+      border: 1.5px solid rgba(255,255,255,.30);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: .97rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder {
+      color: rgba(255,255,255,.50);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--white);
+      color: var(--red);
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.20); }
+    .cta-alt {
+      color: rgba(255,255,255,.75); font-size: .9rem; position: relative;
+    }
+    .cta-alt a { color: var(--gold); font-weight: 700; }
+
+    /* success message */
+    .success-msg {
+      display: none;
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .success-msg i { font-size: 2.5rem; color: #22c55e; display: block; margin-bottom: 10px; }
+    .success-msg p { color: #166534; font-weight: 700; font-size: 1rem; margin: 0; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.65);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .footer-logo { font-size: 1.6rem; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: .9rem; margin-bottom: 20px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-links a { color: rgba(255,255,255,.55); text-decoration: none; font-size: .85rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+
+    /* ===== SCROLL TO TOP ===== */
+    #scrollTop {
+      position: fixed; bottom: 24px; right: 24px; z-index: 900;
+      width: 46px; height: 46px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(224,32,32,.40);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+    }
+    #scrollTop.show { opacity: 1; pointer-events: auto; }
+    #scrollTop:hover { transform: scale(1.1); }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width: 600px) {
+      .problem-box, .domain-inside, .upgrade-wrap, .cta-form, .free-banner, .whatis-card { padding: 28px 20px; }
+      .hero-trust { gap: 20px; }
+      .upgrade-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Hà Tĩnh<span>.Vip</span></a>
+    <a href="#cta" class="nav-cta"><i class="fa-solid fa-bolt"></i> Đăng ký miễn phí</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fa-solid fa-location-dot"></i>
+      Dành riêng cho Hà Tĩnh
+    </div>
+    <h1>Bạn chưa có website?<br /><span>HaTinh.Vip làm cho — miễn phí.</span></h1>
+    <p class="hero-desc">
+      Nền tảng làm website miễn phí cho chủ quán, chủ cửa hàng,
+      doanh nghiệp nhỏ trên địa bàn <strong style="color:#fff">Hà Tĩnh</strong>.
+      Nhanh – Gọn – Không tốn đồng nào.
+    </p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-primary">
+        <i class="fa-solid fa-rocket"></i> Đăng ký làm website miễn phí
+      </a>
+      <a href="#whatis" class="btn-secondary">
+        <i class="fa-solid fa-circle-question"></i> Tìm hiểu thêm
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><strong>24h</strong>Có web ngay</div>
+      <div class="hero-trust-item"><strong>0đ</strong>Hoàn toàn miễn phí</div>
+      <div class="hero-trust-item"><strong>100%</strong>Dành cho Hà Tĩnh</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section id="problem">
+  <div class="container">
+    <div class="problem-box">
+      <span class="tag"><i class="fa-solid fa-magnifying-glass"></i> Khách tìm cửa hàng bạn như thế này</span>
+      <h2 class="section-title">Khi khách muốn tìm bạn, họ làm gì?</h2>
+      <div class="problem-steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text">Mở <strong>Google</strong> trên điện thoại</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text">Gõ tên quán, tên cửa hàng, hoặc loại dịch vụ tại Hà Tĩnh</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-text">Xem <strong>địa chỉ, số điện thoại, hình ảnh</strong> rồi quyết định đến</div>
+        </div>
+      </div>
+      <div class="problem-note">
+        <strong>👉 Nhiều cửa hàng ở Hà Tĩnh đã có Google Map, có Facebook</strong> —
+        nhưng <strong>chưa có website riêng</strong> để giới thiệu cho đàng hoàng, chuyên nghiệp.
+        <br /><br />
+        Khách tìm thấy, nhưng nhìn vào thấy thiếu chuyên nghiệp, họ lại đi nơi khác.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT IS ===== -->
+<section id="whatis">
+  <div class="container">
+    <div class="whatis-card">
+      <div class="big-q"><i class="fa-solid fa-circle-question"></i> HaTinh.Vip là chi?</div>
+      <h2>Nói cho dễ hiểu nhất:</h2>
+      <p>
+        <strong style="color:#f5a623">HaTinh.Vip</strong> là nền tảng làm website <strong style="color:#fff">miễn phí</strong>
+        cho quán xá, cửa hàng, doanh nghiệp tại <strong style="color:#fff">Hà Tĩnh</strong>.
+        Không cần biết công nghệ. Không cần học làm web.
+      </p>
+      <p style="margin-bottom:12px; color:rgba(255,255,255,.65);">Chỉ cần cung cấp 3 thứ là có ngay web riêng:</p>
+      <div class="whatis-needs">
+        <div class="need-chip"><i class="fa-solid fa-store"></i> Tên quán / cửa hàng</div>
+        <div class="need-chip"><i class="fa-solid fa-map-pin"></i> Địa chỉ</div>
+        <div class="need-chip"><i class="fa-solid fa-phone"></i> Số điện thoại</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOMAIN EXAMPLES ===== -->
+<section id="domains">
+  <div class="container">
+    <span class="tag"><i class="fa-solid fa-globe"></i> Địa chỉ web riêng</span>
+    <h2 class="section-title">Website của bạn sẽ trông như thế nào?</h2>
+    <p class="section-sub">Mỗi cửa hàng sẽ có <strong>1 địa chỉ web riêng</strong>, ví dụ:</p>
+    <div class="domain-grid">
+      <div class="domain-card">
+        <div class="domain-icon" style="background:#fff0f0; color:#e02020; font-size:1.6rem;">🍜</div>
+        <h4>Quán Ăn ABC</h4>
+        <div class="domain-url">quananabc.hatinh.vip</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon" style="background:#fdf4ff; color:#a855f7; font-size:1.6rem;">💆</div>
+        <h4>Spa Thanh Mai</h4>
+        <div class="domain-url">spathanhmai.hatinh.vip</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon" style="background:#f0fdf4; color:#16a34a; font-size:1.6rem;">🔧</div>
+        <h4>Gara Ô tô Hoàng Hà</h4>
+        <div class="domain-url">garaotohoangha.hatinh.vip</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon" style="background:#eff6ff; color:#2563eb; font-size:1.6rem;">✂️</div>
+        <h4>Tiệm Tóc Linh Chi</h4>
+        <div class="domain-url">tiemtoclinchi.hatinh.vip</div>
+      </div>
+    </div>
+
+    <div class="domain-inside">
+      <h3><i class="fa-solid fa-list-check" style="color:var(--red)"></i> Trong website sẽ có những gì?</h3>
+      <ul class="inside-list">
+        <li><i class="fa-solid fa-store"></i> Giới thiệu quán / dịch vụ rõ ràng</li>
+        <li><i class="fa-solid fa-map-location-dot"></i> Địa chỉ + bản đồ Google Maps tích hợp sẵn</li>
+        <li><i class="fa-brands fa-square-phone"></i> Số điện thoại &amp; Zalo để khách liên hệ ngay</li>
+        <li><i class="fa-solid fa-images"></i> Hình ảnh cơ bản của quán / sản phẩm</li>
+        <li><i class="fa-solid fa-mobile-screen"></i> Chuẩn mobile – khách xem trên điện thoại cũng đẹp</li>
+      </ul>
+      <div style="margin-top:20px; padding:14px 18px; background:#f0fdf4; border-radius:10px; font-size:.93rem; color:#166534; font-weight:600;">
+        👉 Gọn – Rõ – Khách xem là hiểu liền, không cần giải thích thêm.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FREE ===== -->
+<section id="free">
+  <div class="container">
+    <div class="free-banner">
+      <span class="tag"><i class="fa-solid fa-tag"></i> Chi phí</span>
+      <span class="price">0 đồng</span>
+      <div class="price-label">Làm website miễn phí – Không thu phí gì cả.</div>
+      <ul class="free-list">
+        <li><i class="fa-solid fa-circle-check"></i> Không thu phí ban đầu</li>
+        <li><i class="fa-solid fa-circle-check"></i> Không ép nâng cấp hay mua thêm gói</li>
+        <li><i class="fa-solid fa-circle-check"></i> Không ràng buộc hợp đồng</li>
+        <li><i class="fa-solid fa-circle-check"></i> Cứ dùng Free thoải mái – lâu dài</li>
+        <li>👉 Nếu yêu quý thì mời tôi ly cafe</li>
+      </ul>
+      <a href="#cta" class="btn-primary" style="display:inline-flex; margin-top:4px;">
+        <i class="fa-solid fa-rocket"></i> Đăng ký ngay – miễn phí
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIP EXPLAIN ===== -->
+<section id="vip">
+  <div class="vip-inner">
+    <span class="tag" style="background:rgba(26,26,46,.12); color:var(--dark);">Giải thích vui</span>
+    <h2>Sao gọi là <em>.VIP</em>? Có mắc không? 😄</h2>
+    <p>Không phải mắc tiền đâu! VIP ở đây có nghĩa là làm cho đàng hoàng, cho dễ tìm trên Internet, cho quán mình có mặt online.</p>
+    <div class="vip-meaning">
+      <div class="vip-letters">
+        <span>V</span>ào <span>I</span>nternet <span>P</span>hải có
+      </div>
+      <div class="vip-sub">👑 Cửa hàng nào cũng xứng đáng có website riêng!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHO ===== -->
+<section id="who">
+  <div class="container">
+    <span class="tag"><i class="fa-solid fa-users"></i> Đối tượng</span>
+    <h2 class="section-title">HaTinh.Vip phù hợp với ai?</h2>
+    <p class="section-sub">Miễn là đang kinh doanh tại Hà Tĩnh, đều dùng được.</p>
+    <div class="who-grid">
+      <div class="who-card"><span class="icon">🍜</span><span>Quán ăn, quán nhậu</span></div>
+      <div class="who-card"><span class="icon">🛍️</span><span>Cửa hàng buôn bán</span></div>
+      <div class="who-card"><span class="icon">💆</span><span>Spa, tiệm tóc, salon</span></div>
+      <div class="who-card"><span class="icon">🔧</span><span>Gara ô tô, xe máy</span></div>
+      <div class="who-card"><span class="icon">🏪</span><span>Dịch vụ, DN nhỏ</span></div>
+      <div class="who-card"><span class="icon">☕</span><span>Cà phê, trà sữa</span></div>
+      <div class="who-card"><span class="icon">🏥</span><span>Phòng khám, nha khoa</span></div>
+      <div class="who-card"><span class="icon">📦</span><span>Kho hàng, đại lý</span></div>
+    </div>
+    <div style="margin-top:28px; text-align:center; font-size:1.02rem; font-weight:700; color:var(--red);">
+      👉 Đang kinh doanh tại Hà Tĩnh? Là dùng được ngay.
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section id="benefits">
+  <div class="container">
+    <span class="tag"><i class="fa-solid fa-star"></i> Lợi ích</span>
+    <h2 class="section-title">Có website thì được lợi gì?</h2>
+    <p class="section-sub">Không chỉ là "có cho có" — website thực sự giúp ích cho việc kinh doanh.</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🔍</div>
+        <h4>Khách tìm dễ hơn</h4>
+        <p>Xuất hiện trên Google khi khách tìm kiếm tên quán hoặc dịch vụ tại Hà Tĩnh.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🏆</div>
+        <h4>Trông uy tín hơn</h4>
+        <p>Có website riêng → khách nhìn vào thấy chuyên nghiệp, tin tưởng hơn trước khi đến.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔗</div>
+        <h4>Dễ gửi link cho khách</h4>
+        <p>Thay vì copy địa chỉ dài dòng, chỉ cần gửi link web ngắn gọn là xong.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📡</div>
+        <h4>Thêm kênh ngoài Facebook</h4>
+        <p>Facebook thuật toán thay đổi liên tục. Website là kênh riêng không bị ảnh hưởng.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <h4>Không cần thuê người làm</h4>
+        <p>HaTinh.Vip lo hết từ A–Z. Chủ quán chỉ cần gửi thông tin là xong.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <h4>Chuẩn mobile 100%</h4>
+        <p>Website hiển thị đẹp trên điện thoại, máy tính bảng và cả desktop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UPGRADE ===== -->
+<section id="upgrade">
+  <div class="container">
+    <div class="upgrade-wrap">
+      <span class="tag"><i class="fa-solid fa-arrow-up-right-dots"></i> Nâng cấp (nếu muốn)</span>
+      <h2 class="section-title">Sau này có cần trả tiền không?</h2>
+      <p style="color:var(--muted); font-size:.97rem; margin-bottom:8px;">
+        👉 <strong>Không bắt buộc.</strong> Cứ dùng miễn phí lâu dài nếu bạn chưa có nhu cầu thêm.
+        Nếu muốn nâng cấp thêm, HaTinh.Vip hỗ trợ thêm theo nhu cầu.
+      </p>
+      <div class="upgrade-row">
+        <div class="upgrade-col free-col">
+          <h4 style="color:#16a34a;"><i class="fa-solid fa-circle-check"></i> Miễn phí – Dùng mãi</h4>
+          <ul>
+            <li><i class="fa-solid fa-check" style="color:#22c55e"></i> Website cơ bản đầy đủ</li>
+            <li><i class="fa-solid fa-check" style="color:#22c55e"></i> Tên miền *.hatinh.vip</li>
+            <li><i class="fa-solid fa-check" style="color:#22c55e"></i> Địa chỉ + bản đồ</li>
+            <li><i class="fa-solid fa-check" style="color:#22c55e"></i> SĐT + Zalo</li>
+            <li><i class="fa-solid fa-check" style="color:#22c55e"></i> Hình ảnh cơ bản</li>
+          </ul>
+        </div>
+        <div class="upgrade-col paid-col">
+          <h4 style="color:#2563eb;"><i class="fa-solid fa-circle-plus"></i> Nâng cấp (tùy chọn)</h4>
+          <ul>
+            <li><i class="fa-solid fa-plus" style="color:#3b82f6"></i> Chỉnh sửa nội dung linh hoạt</li>
+            <li><i class="fa-solid fa-plus" style="color:#3b82f6"></i> Thêm nhiều hình ảnh, video</li>
+            <li><i class="fa-solid fa-plus" style="color:#3b82f6"></i> Gắn tên miền riêng (.vn, .com)</li>
+            <li><i class="fa-solid fa-plus" style="color:#3b82f6"></i> Thiết kế web đẹp hơn</li>
+            <li><i class="fa-solid fa-plus" style="color:#3b82f6"></i> Tối ưu SEO nâng cao</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section id="timeline">
+  <div class="container" style="text-align:center;">
+    <span class="tag"><i class="fa-regular fa-clock"></i> Quy trình</span>
+    <h2 class="section-title">Làm website mất bao lâu?</h2>
+    <p class="section-sub">Thường <strong>trong 24 giờ</strong> là có web để dùng. Quy trình cực đơn giản:</p>
+    <div class="tl-wrap">
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot">1</div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <h4>Bạn điền thông tin đăng ký</h4>
+          <p>Tên cửa hàng, địa chỉ, số điện thoại — chỉ 3 thứ thôi, 2 phút là xong.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot">2</div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <h4>HaTinh.Vip liên hệ xác nhận</h4>
+          <p>Chúng mình nhắn Zalo hoặc gọi lại để xác nhận thông tin với bạn.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot">3</div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <h4>Website được tạo trong 24h</h4>
+          <p>HaTinh.Vip làm xong và gửi link web cho bạn dùng ngay.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot" style="background:var(--gold); color:var(--dark);">✓</div></div>
+        <div class="tl-body">
+          <h4>Bạn có website riêng rồi!</h4>
+          <p>Gửi link cho khách, đăng lên Facebook, để số điện thoại — thoải mái dùng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section id="why">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff;">HaTinh.Vip làm vì <span>cái chi?</span></h2>
+    <p style="color:rgba(255,255,255,.70); font-size:1.05rem; max-width:540px; margin:14px auto 0;">
+      Bên mình muốn: Quán xá, cửa hàng ở Hà Tĩnh — ai cũng có một cái website
+      để giới thiệu với khách. Không cần cầu kỳ. <strong style="color:#f5a623">Chỉ cần có là được.</strong>
+      <br /><br />
+      Hà Tĩnh mình cũng xứng đáng hiện diện đàng hoàng trên Internet. 💙
+    </p>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="container">
+    <h2>Đăng ký làm website miễn phí</h2>
+    <p>
+      👉 Bạn đang ở Hà Tĩnh?<br />
+      👉 Muốn có website nhanh, gọn, không rắc rối?<br />
+      Điền thông tin dưới đây — HaTinh.Vip lo phần còn lại.
+    </p>
+    <div class="cta-form">
+      <form id="registerForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name"><i class="fa-solid fa-store"></i> Tên quán / cửa hàng *</label>
+          <input type="text" id="name" name="name" placeholder="VD: Quán Ăn Hương Quê" required />
+        </div>
+        <div class="form-group">
+          <label for="address"><i class="fa-solid fa-map-pin"></i> Địa chỉ *</label>
+          <input type="text" id="address" name="address" placeholder="VD: 123 Trần Phú, TP Hà Tĩnh" required />
+        </div>
+        <div class="form-group">
+          <label for="phone"><i class="fa-solid fa-phone"></i> Số điện thoại / Zalo *</label>
+          <input type="tel" id="phone" name="phone" placeholder="VD: 0912 345 678" required />
+        </div>
+        <div class="form-group">
+          <label for="note"><i class="fa-solid fa-pen-to-square"></i> Ghi chú thêm (không bắt buộc)</label>
+          <textarea id="note" name="note" placeholder="Loại hình kinh doanh, mong muốn đặc biệt..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-rocket"></i> ĐĂNG KÝ LÀM WEBSITE MIỄN PHÍ
+        </button>
+      </form>
+      <div class="success-msg" id="successMsg">
+        <i class="fa-solid fa-circle-check"></i>
+        <p>🎉 Đăng ký thành công! HaTinh.Vip sẽ liên hệ bạn qua Zalo/SĐT trong thời gian sớm nhất.</p>
+      </div>
+    </div>
+    <div class="cta-alt">
+      Hoặc liên hệ trực tiếp qua Zalo:
+      <a href="https://zalo.me/0888140868" target="_blank">Nhắn Zalo ngay →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">HaTinh<span>.Vip</span></div>
+  <div class="footer-tagline">Làm web miễn phí – Gọn gàng – Cho quán Hà Tĩnh</div>
+  <div class="footer-links">
+    <a href="#hero">Trang chủ</a>
+    <a href="#whatis">Giới thiệu</a>
+    <a href="#domains">Website mẫu</a>
+    <a href="#who">Đối tượng</a>
+    <a href="#cta">Đăng ký</a>
+  </div>
+  <div class="footer-copy">© 2026 HaTinh.Vip – Nền tảng website miễn phí cho Hà Tĩnh.</div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- ===== TABLE SCHEMA ===== -->
+<script>
+  // Scroll to top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const offset = 70;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Form submit handler
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
+
+    const data = {
+      store_name: form.name.value.trim(),
+      address:    form.address.value.trim(),
+      phone:      form.phone.value.trim(),
+      note:       form.note.value.trim(),
+      submitted_at: new Date().toISOString()
+    };
+
+    try {
+      const res = await fetch('/api/registrations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok || res.status === 201) {
+        form.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-rocket"></i> ĐĂNG KÝ LÀM WEBSITE MIỄN PHÍ';
+      alert('Có lỗi xảy ra! Vui lòng thử lại hoặc liên hệ Zalo.');
+    }
+  }
+</script>
+</body>
+</html>
