@@ -362,4 +362,4 @@ CREATE POLICY "Allow anon select" ON public.registrations
 
 - Zalo: [https://zalo.me/0888140868](https://zalo.me/0888140868)
 - Cloudflare Docs: [https://developers.cloudflare.com/pages/functions/](https://developers.cloudflare.com/pages/functions/)
-- Supabase Docs: [https://supabase.com/docs](https://supabase.com/docs)
+- Supabase Docs: [https://supabase.com/docs](https://supabase.com/docs).
