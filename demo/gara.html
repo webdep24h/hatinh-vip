@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gara Ô Tô Hoàng Hà – Sửa Chữa Ô Tô Hà Tĩnh</title>
+  <meta name="description" content="Gara Ô Tô Hoàng Hà – Sửa chữa, bảo dưỡng ô tô chuyên nghiệp tại Hà Tĩnh. Gọi ngay 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:#16a34a; --primary2:#15803d; --accent:#86efac;
+      --dark:#052e16; --dark2:#14532d; --light:#f0fdf4;
+      --white:#ffffff; --text:#1a2e1a; --muted:#4d7c5a; --border:#bbf7d0;
+      --radius:14px; --shadow:0 6px 28px rgba(22,163,74,.10);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Be Vietnam Pro',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; line-height:1.7; }
+
+    .demo-ribbon { position:fixed; top:0; left:0; right:0; z-index:9999; background:linear-gradient(90deg,#1a1a2e,#0f3460); color:#fff; text-align:center; padding:9px 16px; font-size:.82rem; font-weight:700; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; }
+    .demo-ribbon span { color:#f5a623; }
+    .demo-ribbon a { background:#e02020; color:#fff; padding:5px 16px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.8rem; white-space:nowrap; }
+    .ribbon-close { background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1rem; }
+
+    nav { position:sticky; top:42px; z-index:100; background:rgba(5,46,22,.97); backdrop-filter:blur(10px); padding:14px 20px; }
+    .nav-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .logo { font-size:1.28rem; font-weight:900; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:10px; }
+    .logo-sub { font-size:.68rem; font-weight:500; color:rgba(255,255,255,.4); display:block; margin-top:-4px; }
+    .nav-cta { background:var(--primary); color:var(--white); font-weight:800; font-size:.85rem; padding:10px 22px; border-radius:8px; text-decoration:none; transition:.2s; display:flex; align-items:center; gap:7px; }
+    .nav-cta:hover { background:var(--primary2); }
+
+    /* HOTLINE BANNER */
+    .hotline-bar { background:var(--primary); padding:12px 20px; text-align:center; }
+    .hotline-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; color:var(--white); font-size:.88rem; font-weight:700; }
+    .hotline-number { font-size:1.2rem; font-weight:900; color:#fff; background:rgba(0,0,0,.2); padding:6px 20px; border-radius:100px; text-decoration:none; }
+
+    #hero { background:linear-gradient(160deg,var(--dark) 0%,#0d3320 50%,var(--dark2) 100%); padding:70px 20px 60px; text-align:center; position:relative; overflow:hidden; }
+    #hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 30%,rgba(134,239,172,.12) 0%,transparent 60%); }
+    .hero-inner { position:relative; z-index:1; max-width:760px; margin:0 auto; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
+    #hero h1 { font-size:clamp(1.9rem,5vw,3rem); font-weight:900; color:var(--white); line-height:1.2; margin-bottom:14px; }
+    #hero h1 span { color:var(--accent); }
+    .hero-desc { color:rgba(255,255,255,.72); font-size:1rem; margin-bottom:28px; }
+    .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--primary); color:var(--white); font-weight:800; font-size:1rem; padding:14px 32px; border-radius:10px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 18px rgba(22,163,74,.4); transition:.2s; }
+    .btn-primary:hover { background:var(--primary2); transform:translateY(-2px); }
+    .btn-ghost { background:rgba(255,255,255,.1); color:var(--white); font-weight:700; font-size:1rem; padding:13px 26px; border-radius:10px; text-decoration:none; border:1.5px solid rgba(255,255,255,.22); display:inline-flex; align-items:center; gap:8px; transition:.2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.18); }
+    .trust-row { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
+    .trust-item { background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:12px; padding:14px 20px; text-align:center; min-width:100px; }
+    .trust-item strong { display:block; font-size:1.5rem; font-weight:900; color:var(--accent); line-height:1; }
+    .trust-item span { font-size:.8rem; color:rgba(255,255,255,.65); font-weight:600; }
+
+    section { padding:60px 20px; }
+    .container { max-width:960px; margin:0 auto; }
+    .section-tag { display:inline-block; background:rgba(22,163,74,.1); color:var(--primary); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:5px 14px; border-radius:100px; margin-bottom:12px; }
+    .section-title { font-size:clamp(1.4rem,3.5vw,2rem); font-weight:800; color:var(--dark); margin-bottom:10px; }
+    .section-sub { color:var(--muted); font-size:.95rem; margin-bottom:32px; }
+
+    /* SERVICES */
+    #services { background:var(--light); }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; }
+    .service-card { background:var(--white); border-radius:var(--radius); padding:22px; border:1.5px solid var(--border); transition:.2s; }
+    .service-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .service-icon { font-size:2.5rem; margin-bottom:12px; display:block; }
+    .service-name { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:6px; }
+    .service-desc { font-size:.85rem; color:var(--muted); line-height:1.6; margin-bottom:12px; }
+    .service-badge { display:inline-flex; align-items:center; gap:5px; background:var(--light); color:var(--primary); font-size:.78rem; font-weight:700; padding:4px 12px; border-radius:100px; }
+
+    /* WARRANTY */
+    #warranty { background:var(--white); }
+    .warranty-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; }
+    .warranty-card { border-radius:var(--radius); padding:24px; border:2px solid var(--border); text-align:center; }
+    .warranty-num { font-size:3rem; font-weight:900; color:var(--primary); line-height:1; margin-bottom:8px; }
+    .warranty-label { font-size:.95rem; font-weight:800; color:var(--dark); margin-bottom:6px; }
+    .warranty-desc { font-size:.85rem; color:var(--muted); }
+
+    /* INFO */
+    #info-section { background:var(--light); }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .info-card { background:var(--white); border-radius:var(--radius); padding:22px; border:1.5px solid var(--border); }
+    .info-card h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .info-row { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+    .info-row:last-child { border-bottom:none; }
+    .info-icon { color:var(--primary); width:18px; text-align:center; margin-top:3px; }
+    .info-label { font-size:.77rem; color:var(--muted); font-weight:600; }
+    .info-val { font-size:.9rem; font-weight:700; color:var(--dark); }
+    .hours-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:.88rem; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-time { color:var(--primary); font-weight:700; }
+    .emergency-box { margin-top:14px; background:rgba(22,163,74,.08); border:1.5px solid var(--border); border-radius:12px; padding:14px; text-align:center; }
+    .emergency-box p { font-size:.83rem; color:var(--muted); margin-bottom:6px; }
+    .emergency-phone { font-size:1.3rem; font-weight:900; color:var(--primary); text-decoration:none; display:block; }
+
+    .map-placeholder { height:260px; background:linear-gradient(135deg,#f0fdf4,#dcfce7); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:var(--primary); font-weight:700; }
+    .map-placeholder i { font-size:3rem; }
+
+    #cta-section { background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%); text-align:center; }
+    #cta-section h2 { font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:var(--white); margin-bottom:14px; }
+    #cta-section h2 span { color:var(--accent); }
+    #cta-section p { color:rgba(255,255,255,.7); margin-bottom:28px; }
+
+    footer { background:var(--dark); color:rgba(255,255,255,.6); padding:32px 20px; text-align:center; }
+    .footer-brand { font-size:1.4rem; font-weight:900; color:var(--white); margin-bottom:6px; }
+    .footer-copy { font-size:.78rem; color:rgba(255,255,255,.3); margin-top:6px; }
+    .powered { margin-top:8px; font-size:.75rem; color:rgba(255,255,255,.3); }
+    .powered a { color:#f5a623; text-decoration:none; font-weight:700; }
+
+    .floating-call { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+    .float-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:800; font-size:.88rem; box-shadow:0 4px 18px rgba(0,0,0,.2); transition:.2s; }
+    .float-call { background:var(--primary); color:#fff; }
+    .float-call:hover { background:var(--primary2); transform:scale(1.04); }
+    .float-zalo { background:#0068ff; color:#fff; }
+    .float-zalo:hover { background:#0055cc; transform:scale(1.04); }
+
+    @media(max-width:640px) {
+      .info-grid { grid-template-columns:1fr; }
+      .service-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-ribbon" id="demoRibbon">
+  <span>🎨 Đây là website mẫu demo</span> – Sẽ được tùy chỉnh theo thông tin gara của bạn.
+  <a href="../index.html#cta"><i class="fa-solid fa-bolt"></i> Đăng ký miễn phí</a>
+  <button class="ribbon-close" onclick="document.getElementById('demoRibbon').remove(); document.querySelector('nav').style.top='0'">✕</button>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <span style="font-size:1.5rem;">🔧</span>
+      <span>Gara Hoàng Hà<span class="logo-sub">garaotohoangha.hatinh.vip</span></span>
+    </a>
+    <a href="tel:0901234567" class="nav-cta"><i class="fa-solid fa-phone"></i> Gọi 24/7</a>
+  </div>
+</nav>
+
+<div class="hotline-bar">
+  <div class="hotline-inner">
+    <span>🚨 Cứu hộ xe 24/7 – Gọi ngay:</span>
+    <a href="tel:0901234567" class="hotline-number">0901 234 567</a>
+    <span>– Có mặt trong 30 phút!</span>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-wrench"></i> Gara ô tô Hà Tĩnh</div>
+    <h1>Sửa xe uy tín<br /><span>Tận tâm – Nhanh chóng – Bảo hành</span></h1>
+    <p class="hero-desc">Gara Hoàng Hà – 15 năm kinh nghiệm sửa chữa và bảo dưỡng ô tô tại Hà Tĩnh. Thợ lành nghề, máy móc hiện đại, giá minh bạch.</p>
+    <div class="hero-btns">
+      <a href="tel:0901234567" class="btn-primary"><i class="fa-solid fa-phone"></i> Gọi ngay: 0901 234 567</a>
+      <a href="#services" class="btn-ghost"><i class="fa-solid fa-wrench"></i> Xem dịch vụ</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><strong>15+</strong><span>Năm KN</span></div>
+      <div class="trust-item"><strong>5000+</strong><span>Xe đã sửa</span></div>
+      <div class="trust-item"><strong>24/7</strong><span>Cứu hộ</span></div>
+      <div class="trust-item"><strong>100%</strong><span>Bảo hành</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-wrench"></i> Dịch vụ</span>
+    <h2 class="section-title">Chúng tôi sửa được gì?</h2>
+    <p class="section-sub">Tất cả các dòng xe ô tô – Đầy đủ thiết bị chẩn đoán hiện đại.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="service-icon">🔍</span>
+        <div class="service-name">Chẩn đoán & kiểm tra</div>
+        <div class="service-desc">Dùng máy scan OBD2 kiểm tra toàn bộ hệ thống, xác định lỗi chính xác trước khi sửa.</div>
+        <span class="service-badge"><i class="fa-solid fa-check"></i> Miễn phí kiểm tra</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚙️</span>
+        <div class="service-name">Sửa chữa động cơ</div>
+        <div class="service-desc">Đại tu máy, thay phốt, sửa hộp số, hệ thống làm mát, điện động cơ.</div>
+        <span class="service-badge"><i class="fa-solid fa-shield"></i> Bảo hành 3 tháng</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛞</span>
+        <div class="service-name">Lốp xe & Cân chỉnh</div>
+        <div class="service-desc">Thay lốp, vá lốp, cân chỉnh góc lái, cân bằng động bánh xe.</div>
+        <span class="service-badge"><i class="fa-solid fa-bolt"></i> Làm nhanh trong ngày</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">❄️</span>
+        <div class="service-name">Điều hòa ô tô</div>
+        <div class="service-desc">Nạp gas, vệ sinh giàn lạnh, thay thế linh kiện điều hòa.</div>
+        <span class="service-badge"><i class="fa-solid fa-snowflake"></i> Mát ngay hôm đó</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <div class="service-name">Làm mới & Đánh bóng</div>
+        <div class="service-desc">Đánh bóng sơn, phủ ceramic, tẩy vết xước, khôi phục nội thất.</div>
+        <span class="service-badge"><i class="fa-solid fa-star"></i> Như xe mới</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚑</span>
+        <div class="service-name">Cứu hộ xe 24/7</div>
+        <div class="service-desc">Xe hỏng dọc đường, hết xăng, cạn bình, tai nạn — gọi ngay, có mặt trong 30 phút.</div>
+        <span class="service-badge" style="background:#fff0f0;color:#ef4444;"><i class="fa-solid fa-truck"></i> 24/7 toàn tỉnh</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="warranty">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-shield"></i> Cam kết</span>
+    <h2 class="section-title">Chúng tôi cam kết</h2>
+    <div class="warranty-grid">
+      <div class="warranty-card" style="border-color:#bbf7d0; background:#f0fdf4;">
+        <div class="warranty-num">3</div>
+        <div class="warranty-label">Tháng bảo hành</div>
+        <div class="warranty-desc">Tất cả dịch vụ sửa chữa đều được bảo hành tối thiểu 3 tháng.</div>
+      </div>
+      <div class="warranty-card" style="border-color:#fde68a; background:#fefce8;">
+        <div class="warranty-num" style="color:#d97706;">100%</div>
+        <div class="warranty-label">Linh kiện chính hãng</div>
+        <div class="warranty-desc">Chỉ dùng phụ tùng chính hãng, có nguồn gốc rõ ràng.</div>
+      </div>
+      <div class="warranty-card" style="border-color:#bfdbfe; background:#eff6ff;">
+        <div class="warranty-num" style="color:#2563eb;">30'</div>
+        <div class="warranty-label">Cứu hộ có mặt</div>
+        <div class="warranty-desc">Cứu hộ trong bán kính 50km, có mặt trong 30 phút.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info-section">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-location-dot"></i> Địa chỉ & Giờ làm việc</span>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-clock" style="color:var(--primary)"></i> Giờ làm việc</h3>
+        <div class="hours-row"><span>Thứ 2 – Thứ 7</span><span class="hours-time">07:00 – 18:30</span></div>
+        <div class="hours-row"><span>Chủ nhật</span><span class="hours-time">07:30 – 17:00</span></div>
+        <div class="emergency-box">
+          <p>Cứu hộ xe 24/7 – Gọi ngay:</p>
+          <a href="tel:0901234567" class="emergency-phone">0901 234 567</a>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fa-solid fa-map-pin" style="color:var(--primary)"></i> Địa chỉ</h3>
+        <div class="info-row"><i class="fa-solid fa-location-dot info-icon"></i><div><div class="info-label">Địa chỉ gara</div><div class="info-val">156 Quốc lộ 1A, Xã Thạch Đồng, Thạch Hà, Hà Tĩnh</div></div></div>
+        <div class="info-row"><i class="fa-solid fa-phone info-icon"></i><div><div class="info-label">Điện thoại</div><div class="info-val"><a href="tel:0901234567" style="color:var(--primary);text-decoration:none;">0901 234 567</a></div></div></div>
+        <div class="info-row"><i class="fa-brands fa-facebook info-icon"></i><div><div class="info-label">Facebook</div><div class="info-val">fb.com/GaraHoangHaHT</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="map-placeholder">
+  <i class="fa-solid fa-map-location-dot"></i>
+  <strong>156 QL1A, Thạch Đồng, Thạch Hà, Hà Tĩnh</strong>
+  <small style="font-weight:500;">(Google Maps tích hợp khi triển khai thực tế)</small>
+</div>
+
+<section id="cta-section">
+  <div class="container">
+    <h2>Xe hỏng? Cứ gọi –<br /><span>Chúng tôi lo phần còn lại!</span></h2>
+    <p>Gara Hoàng Hà phục vụ 24/7. Cứu hộ toàn tỉnh Hà Tĩnh – không để bạn kẹt xe giữa đường.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:0901234567" class="btn-primary"><i class="fa-solid fa-phone"></i> Gọi ngay: 0901 234 567</a>
+      <a href="https://zalo.me/0901234567" target="_blank" class="btn-ghost"><i class="fa-solid fa-comment"></i> Nhắn Zalo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">🔧 Gara Ô Tô Hoàng Hà</div>
+  <div style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:8px;">156 QL1A, Thạch Hà, Hà Tĩnh &nbsp;|&nbsp; 0901 234 567</div>
+  <div class="footer-copy">© 2026 Gara Ô Tô Hoàng Hà.</div>
+  <div class="powered">Website miễn phí bởi <a href="../index.html" target="_blank">HaTinh.Vip</a></div>
+</footer>
+
+<div class="floating-call">
+  <a href="https://zalo.me/0901234567" target="_blank" class="float-btn float-zalo"><i class="fa-solid fa-comment-dots"></i> Zalo</a>
+  <a href="tel:0901234567" class="float-btn float-call"><i class="fa-solid fa-phone"></i> Gọi 24/7</a>
+</div>
+
+<script>
+  const ribbon = document.getElementById('demoRibbon');
+  if (ribbon) { const u = () => { document.querySelector('nav').style.top = ribbon.offsetHeight+'px'; }; u(); window.addEventListener('resize',u); }
+</script>
+</body>
+</html>

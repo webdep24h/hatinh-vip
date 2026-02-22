@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spa Xinh Đẹp – Chăm Sóc Sắc Đẹp Hà Tĩnh</title>
+  <meta name="description" content="Spa Xinh Đẹp – Dịch vụ spa, tiệm tóc, nail chuyên nghiệp tại Hà Tĩnh. Đặt lịch qua Zalo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:#9333ea; --primary2:#7e22ce; --accent:#f0abfc;
+      --dark:#1a0b2e; --dark2:#2d1254; --light:#fdf4ff;
+      --white:#ffffff; --text:#2d1b4e; --muted:#7c5fa0; --border:#e9d5ff;
+      --radius:16px; --shadow:0 6px 28px rgba(147,51,234,.12);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Be Vietnam Pro',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; line-height:1.7; }
+
+    .demo-ribbon { position:fixed; top:0; left:0; right:0; z-index:9999; background:linear-gradient(90deg,#1a1a2e,#0f3460); color:#fff; text-align:center; padding:9px 16px; font-size:.82rem; font-weight:700; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; }
+    .demo-ribbon span { color:#f5a623; }
+    .demo-ribbon a { background:#e02020; color:#fff; padding:5px 16px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.8rem; white-space:nowrap; }
+    .ribbon-close { background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1rem; padding:0 4px; }
+
+    nav { position:sticky; top:42px; z-index:100; background:rgba(26,11,46,.96); backdrop-filter:blur(10px); padding:14px 20px; }
+    .nav-inner { max-width:900px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:1.3rem; font-weight:900; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:8px; }
+    .logo-sub { font-size:.7rem; font-weight:500; color:rgba(255,255,255,.4); display:block; margin-top:-4px; }
+    .nav-cta { background:var(--primary); color:var(--white); font-weight:800; font-size:.85rem; padding:9px 20px; border-radius:100px; text-decoration:none; transition:.2s; }
+    .nav-cta:hover { background:var(--primary2); }
+
+    #hero { background:linear-gradient(155deg,var(--dark) 0%,#3b0764 50%,#5b21b6 100%); padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden; }
+    #hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 65% 30%,rgba(240,171,252,.15) 0%,transparent 60%),radial-gradient(ellipse at 15% 80%,rgba(147,51,234,.15) 0%,transparent 55%); }
+    .hero-inner { position:relative; z-index:1; max-width:680px; margin:0 auto; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
+    #hero h1 { font-size:clamp(1.9rem,5vw,3rem); font-weight:900; color:var(--white); line-height:1.22; margin-bottom:14px; }
+    #hero h1 span { color:var(--accent); }
+    .hero-desc { color:rgba(255,255,255,.72); font-size:1rem; margin-bottom:28px; }
+    .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--primary); color:var(--white); font-weight:800; font-size:1rem; padding:14px 32px; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 18px rgba(147,51,234,.4); transition:.2s; }
+    .btn-primary:hover { background:var(--primary2); transform:translateY(-2px); }
+    .btn-ghost { background:rgba(255,255,255,.1); color:var(--white); font-weight:700; font-size:1rem; padding:13px 26px; border-radius:100px; text-decoration:none; border:1.5px solid rgba(255,255,255,.22); display:inline-flex; align-items:center; gap:8px; transition:.2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.18); }
+
+    section { padding:60px 20px; }
+    .container { max-width:900px; margin:0 auto; }
+    .section-tag { display:inline-block; background:rgba(147,51,234,.1); color:var(--primary); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:5px 14px; border-radius:100px; margin-bottom:12px; }
+    .section-title { font-size:clamp(1.4rem,3.5vw,2rem); font-weight:800; color:var(--dark); margin-bottom:10px; }
+    .section-sub { color:var(--muted); font-size:.95rem; margin-bottom:32px; }
+
+    /* SERVICES */
+    #services { background:var(--light); }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; }
+    .service-card { background:var(--white); border-radius:var(--radius); padding:24px; border:1.5px solid var(--border); box-shadow:var(--shadow); transition:.2s; }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(147,51,234,.15); }
+    .service-icon { font-size:2.5rem; margin-bottom:14px; display:block; }
+    .service-name { font-size:1.05rem; font-weight:800; color:var(--dark); margin-bottom:6px; }
+    .service-desc { font-size:.87rem; color:var(--muted); margin-bottom:14px; line-height:1.6; }
+    .service-price-wrap { display:flex; align-items:center; justify-content:space-between; }
+    .service-price { font-size:1.05rem; font-weight:900; color:var(--primary); }
+    .service-time { font-size:.78rem; color:var(--muted); font-weight:600; background:var(--light); padding:4px 10px; border-radius:100px; }
+
+    /* PRICE TABLE */
+    #pricing { background:var(--white); }
+    .price-table { width:100%; border-collapse:collapse; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .price-table th { background:var(--primary); color:var(--white); padding:14px 18px; text-align:left; font-size:.88rem; font-weight:800; }
+    .price-table td { padding:13px 18px; border-bottom:1px solid var(--border); font-size:.9rem; }
+    .price-table tr:last-child td { border-bottom:none; }
+    .price-table tr:nth-child(even) td { background:var(--light); }
+    .price-bold { font-weight:800; color:var(--dark); }
+    .price-amount { font-weight:900; color:var(--primary); }
+
+    /* BOOKING */
+    #booking { background:var(--light); }
+    .booking-wrap { background:var(--white); border-radius:var(--radius); padding:32px; border:1.5px solid var(--border); box-shadow:var(--shadow); max-width:600px; margin:0 auto; text-align:center; }
+    .booking-wrap h3 { font-size:1.3rem; font-weight:800; color:var(--dark); margin-bottom:8px; }
+    .booking-wrap p { color:var(--muted); font-size:.93rem; margin-bottom:24px; }
+    .booking-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .booking-btn { display:inline-flex; align-items:center; gap:9px; padding:14px 28px; border-radius:12px; font-weight:800; font-size:.95rem; text-decoration:none; transition:.2s; }
+    .booking-zalo { background:#0068ff; color:#fff; }
+    .booking-zalo:hover { background:#0055cc; transform:translateY(-2px); }
+    .booking-phone { background:var(--primary); color:#fff; }
+    .booking-phone:hover { background:var(--primary2); transform:translateY(-2px); }
+    .booking-hours { margin-top:20px; font-size:.85rem; color:var(--muted); font-weight:600; }
+    .booking-hours strong { color:var(--primary); }
+
+    /* INFO */
+    #info-section { background:var(--white); }
+    .info-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .info-card { background:var(--light); border-radius:var(--radius); padding:22px; border:1.5px solid var(--border); }
+    .info-card h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .info-row { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+    .info-row:last-child { border-bottom:none; }
+    .info-icon { color:var(--primary); width:18px; text-align:center; margin-top:3px; }
+    .info-label { font-size:.77rem; color:var(--muted); font-weight:600; }
+    .info-val { font-size:.9rem; font-weight:700; color:var(--dark); }
+    .hours-row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border); font-size:.88rem; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-time { color:var(--primary); font-weight:700; }
+
+    #cta-section { background:linear-gradient(135deg,var(--dark) 0%,#3b0764 100%); text-align:center; }
+    #cta-section h2 { font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:var(--white); margin-bottom:14px; }
+    #cta-section h2 span { color:var(--accent); }
+    #cta-section p { color:rgba(255,255,255,.7); margin-bottom:28px; }
+
+    footer { background:var(--dark); color:rgba(255,255,255,.6); padding:32px 20px; text-align:center; }
+    .footer-brand { font-size:1.5rem; font-weight:900; color:var(--white); margin-bottom:6px; }
+    .footer-copy { font-size:.78rem; color:rgba(255,255,255,.3); margin-top:6px; }
+    .powered { margin-top:8px; font-size:.75rem; color:rgba(255,255,255,.3); }
+    .powered a { color:#f5a623; text-decoration:none; font-weight:700; }
+
+    .floating-call { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+    .float-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.88rem; box-shadow:0 4px 18px rgba(0,0,0,.2); transition:.2s; }
+    .float-zalo { background:#0068ff; color:#fff; }
+    .float-zalo:hover { background:#0055cc; transform:scale(1.04); }
+    .float-call { background:#22c55e; color:#fff; }
+    .float-call:hover { background:#16a34a; transform:scale(1.04); }
+
+    .map-placeholder { height:260px; background:linear-gradient(135deg,#fdf4ff,#ede9fe); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:var(--primary); font-weight:700; }
+    .map-placeholder i { font-size:3rem; }
+
+    @media(max-width:640px) {
+      .info-cards { grid-template-columns:1fr; }
+      .service-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-ribbon" id="demoRibbon">
+  <span>🎨 Đây là website mẫu demo</span> – Website thực sẽ được cá nhân hóa theo thông tin của bạn.
+  <a href="../index.html#cta"><i class="fa-solid fa-bolt"></i> Đăng ký miễn phí</a>
+  <button class="ribbon-close" onclick="document.getElementById('demoRibbon').remove(); document.querySelector('nav').style.top='0'">✕</button>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <span style="font-size:1.4rem;">💆</span>
+      <span>Spa Xinh Đẹp<span class="logo-sub">spaxinhdep.hatinh.vip</span></span>
+    </a>
+    <a href="https://zalo.me/0945678901" target="_blank" class="nav-cta"><i class="fa-solid fa-calendar-check"></i> Đặt lịch Zalo</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-spa"></i> Spa & Làm đẹp Hà Tĩnh</div>
+    <h1>Tỏa sáng từ<br /><span>bên trong ra bên ngoài</span></h1>
+    <p class="hero-desc">Thư giãn cơ thể, chăm chút nhan sắc với đội ngũ chuyên viên được đào tạo bài bản. Không gian yên tĩnh, dịch vụ tận tâm.</p>
+    <div class="hero-btns">
+      <a href="https://zalo.me/0945678901" target="_blank" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> Đặt lịch qua Zalo</a>
+      <a href="#services" class="btn-ghost"><i class="fa-solid fa-list"></i> Xem dịch vụ</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-spa"></i> Dịch vụ</span>
+    <h2 class="section-title">Chúng tôi cung cấp</h2>
+    <p class="section-sub">Tất cả dịch vụ đều sử dụng sản phẩm cao cấp, an toàn cho da.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="service-icon">💆</span>
+        <div class="service-name">Massage thư giãn</div>
+        <div class="service-desc">Massage toàn thân bằng tinh dầu thiên nhiên, giúp giải tỏa căng thẳng và mệt mỏi.</div>
+        <div class="service-price-wrap"><span class="service-price">Từ 200.000đ</span><span class="service-time">⏱ 60 phút</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✂️</span>
+        <div class="service-name">Cắt tạo kiểu tóc</div>
+        <div class="service-desc">Cắt, uốn, nhuộm tóc theo xu hướng mới nhất. Tư vấn kiểu phù hợp khuôn mặt.</div>
+        <div class="service-price-wrap"><span class="service-price">Từ 150.000đ</span><span class="service-time">⏱ 45–90 phút</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💅</span>
+        <div class="service-name">Làm móng Nail</div>
+        <div class="service-desc">Sơn gel, đắp bột, vẽ nail nghệ thuật. Sản phẩm an toàn, lành tính cho móng.</div>
+        <div class="service-price-wrap"><span class="service-price">Từ 120.000đ</span><span class="service-time">⏱ 30–60 phút</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧖</span>
+        <div class="service-name">Chăm sóc da mặt</div>
+        <div class="service-desc">Thải độc tố, dưỡng ẩm sâu, tái tạo da. Phù hợp da dầu, khô và hỗn hợp.</div>
+        <div class="service-price-wrap"><span class="service-price">Từ 250.000đ</span><span class="service-time">⏱ 75 phút</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-tag"></i> Bảng giá</span>
+    <h2 class="section-title">Giá dịch vụ chi tiết</h2>
+    <p class="section-sub">Giá đã bao gồm vật tư, không phát sinh thêm chi phí.</p>
+    <table class="price-table">
+      <thead><tr><th>Dịch vụ</th><th>Mô tả</th><th>Giá</th></tr></thead>
+      <tbody>
+        <tr><td class="price-bold">Cắt tóc nữ</td><td>Gội + cắt + sấy tạo kiểu</td><td class="price-amount">150.000đ</td></tr>
+        <tr><td class="price-bold">Uốn xoăn</td><td>Uốn + dưỡng tóc sau uốn</td><td class="price-amount">350.000đ</td></tr>
+        <tr><td class="price-bold">Nhuộm màu</td><td>Nhuộm toàn đầu, màu chuẩn</td><td class="price-amount">300.000đ</td></tr>
+        <tr><td class="price-bold">Nail cơ bản</td><td>Sơn gel tay hoặc chân</td><td class="price-amount">120.000đ</td></tr>
+        <tr><td class="price-bold">Nail fullset</td><td>Đắp bột, sơn gel + vẽ nghệ thuật</td><td class="price-amount">250.000đ</td></tr>
+        <tr><td class="price-bold">Massage body</td><td>Massage toàn thân 60 phút</td><td class="price-amount">200.000đ</td></tr>
+        <tr><td class="price-bold">Chăm sóc da mặt cơ bản</td><td>Làm sạch + dưỡng ẩm</td><td class="price-amount">250.000đ</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <h3>📅 Đặt lịch trước – Ưu đãi 10%</h3>
+      <p>Đặt lịch trước qua Zalo hoặc gọi điện để được phục vụ ngay, không phải chờ đợi. Đặt trước nhận ngay ưu đãi 10%!</p>
+      <div class="booking-btns">
+        <a href="https://zalo.me/0945678901" target="_blank" class="booking-btn booking-zalo"><i class="fa-solid fa-comment-dots"></i> Đặt lịch qua Zalo</a>
+        <a href="tel:0945678901" class="booking-btn booking-phone"><i class="fa-solid fa-phone"></i> Gọi: 0945 678 901</a>
+      </div>
+      <p class="booking-hours">Giờ làm việc: <strong>08:00 – 20:00</strong> mỗi ngày trong tuần</p>
+    </div>
+  </div>
+</section>
+
+<section id="info-section">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-location-dot"></i> Địa chỉ & Giờ mở cửa</span>
+    <div class="info-cards">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-clock" style="color:var(--primary)"></i> Lịch làm việc</h3>
+        <div class="hours-row"><span>Thứ 2 – Thứ 7</span><span class="hours-time">08:00 – 20:00</span></div>
+        <div class="hours-row"><span>Chủ nhật</span><span class="hours-time">09:00 – 18:00</span></div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(147,51,234,.08);border-radius:10px;font-size:.85rem;color:var(--primary);font-weight:700;">💜 Đặt lịch trước được ưu tiên phục vụ</div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fa-solid fa-map-pin" style="color:var(--primary)"></i> Thông tin</h3>
+        <div class="info-row"><i class="fa-solid fa-location-dot info-icon"></i><div><div class="info-label">Địa chỉ</div><div class="info-val">78 Lê Hồng Phong, Phường Hà Huy Tập, TP. Hà Tĩnh</div></div></div>
+        <div class="info-row"><i class="fa-solid fa-phone info-icon"></i><div><div class="info-label">Điện thoại</div><div class="info-val"><a href="tel:0945678901" style="color:var(--primary);text-decoration:none;">0945 678 901</a></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="map-placeholder">
+  <i class="fa-solid fa-map-location-dot"></i>
+  <strong>78 Lê Hồng Phong, TP. Hà Tĩnh</strong>
+  <small style="font-weight:500;">(Bản đồ Google Maps tích hợp khi triển khai thực tế)</small>
+</div>
+
+<section id="cta-section">
+  <div class="container">
+    <h2>Đặt lịch ngay hôm nay<br /><span>Nhận ưu đãi 10%!</span></h2>
+    <p>Dịch vụ chăm sóc toàn diện. Đặt lịch trước qua Zalo để không phải chờ đợi!</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://zalo.me/0945678901" target="_blank" class="btn-primary"><i class="fa-solid fa-comment-dots"></i> Đặt lịch Zalo ngay</a>
+      <a href="tel:0945678901" class="btn-ghost"><i class="fa-solid fa-phone"></i> 0945 678 901</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">💆 Spa Xinh Đẹp</div>
+  <div style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:8px;">78 Lê Hồng Phong, TP. Hà Tĩnh &nbsp;|&nbsp; 0945 678 901</div>
+  <div class="footer-copy">© 2026 Spa Xinh Đẹp.</div>
+  <div class="powered">Website miễn phí bởi <a href="../index.html" target="_blank">HaTinh.Vip</a></div>
+</footer>
+
+<div class="floating-call">
+  <a href="https://zalo.me/0945678901" target="_blank" class="float-btn float-zalo"><i class="fa-solid fa-comment-dots"></i> Zalo</a>
+  <a href="tel:0945678901" class="float-btn float-call"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+</div>
+
+<script>
+  const ribbon = document.getElementById('demoRibbon');
+  if (ribbon) { const u = () => { document.querySelector('nav').style.top = ribbon.offsetHeight+'px'; }; u(); window.addEventListener('resize',u); }
+</script>
+</body>
+</html>

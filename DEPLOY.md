@@ -358,8 +358,99 @@ CREATE POLICY "Allow anon select" ON public.registrations
 
 ---
 
+## PHẦN 8 – Subdomain mau.hatinh.vip (Website Mẫu Demo)
+
+> Phần này hướng dẫn cách tạo subdomain `mau.hatinh.vip` để khách truy cập xem thử các mẫu website.
+
+### 8.1 – Tổng quan
+
+Trang `mau.html` và thư mục `demo/` đã có sẵn trong project. Có 2 cách để truy cập:
+
+| Cách | URL | Mô tả |
+|---|---|---|
+| **Cùng project** | `https://hatinh.vip/mau.html` | Đơn giản nhất, không cần config thêm |
+| **Subdomain riêng** | `https://mau.hatinh.vip` | Chuyên nghiệp hơn, dùng Redirect Rule |
+
+### 8.2 – Cách A: Truy cập qua path (Đơn giản)
+
+Không cần cấu hình gì thêm! Sau khi deploy, truy cập:
+
+```
+https://hatinh.vip/mau.html              ← Gallery chọn mẫu
+https://hatinh.vip/demo/quan-an.html     ← Demo quán ăn
+https://hatinh.vip/demo/cafe.html        ← Demo cà phê
+https://hatinh.vip/demo/spa.html         ← Demo spa
+https://hatinh.vip/demo/gara.html        ← Demo gara
+https://hatinh.vip/demo/cua-hang.html    ← Demo cửa hàng
+https://hatinh.vip/demo/phong-kham.html  ← Demo phòng khám
+```
+
+### 8.3 – Cách B: Subdomain mau.hatinh.vip (Chuyên nghiệp)
+
+#### Bước 8.3.1 – Tạo CNAME record
+
+Trong Cloudflare DNS dashboard:
+
+| Type | Name | Content | Proxy |
+|---|---|---|---|
+| `CNAME` | `mau` | `hatinh-vip.pages.dev` | ✅ Proxied |
+
+> Thay `hatinh-vip.pages.dev` bằng Cloudflare Pages URL thực của bạn.
+
+#### Bước 8.3.2 – Tạo Redirect Rule (Page Rule)
+
+Trong Cloudflare dashboard → **Rules → Redirect Rules → Create Rule**:
+
+**Cách đơn giản nhất** – dùng Redirect Rule:
+- **Match:** `mau.hatinh.vip/*`
+- **Action:** Dynamic Redirect
+- **URL:** `https://hatinh.vip/mau.html`
+- **Status:** 301 Permanent
+
+Hoặc dùng **Cloudflare Pages → Custom domains → Add custom domain** → nhập `mau.hatinh.vip`.
+
+#### Bước 8.3.3 – Tạo file `_redirects` trong project (Cách tốt nhất)
+
+Tạo file `_redirects` ở thư mục gốc với nội dung:
+
+```
+# Subdomain mau.hatinh.vip → /mau.html
+# (Xử lý bởi Cloudflare Pages _redirects)
+/mau   /mau.html   301
+```
+
+> **Lưu ý:** Cloudflare Pages xử lý subdomain riêng theo Custom Domain. Nếu add `mau.hatinh.vip` làm custom domain cho cùng project thì tất cả URL đều hoạt động bình thường, chỉ khác subdomain.
+
+#### Bước 8.3.4 – Add custom domain cho Pages project
+
+1. Vào Cloudflare Pages → Project **hatinh-vip** → **Custom domains**
+2. **Add custom domain** → nhập `mau.hatinh.vip`
+3. Cloudflare tự tạo CNAME → **Activate domain**
+4. Truy cập `https://mau.hatinh.vip/mau.html` → hoạt động!
+
+### 8.4 – Cấu trúc file demo
+
+```
+demo/
+├── quan-an.html     ← Mẫu quán ăn / nhà hàng (màu cam đất)
+├── cafe.html        ← Mẫu cà phê / trà sữa (màu xanh navy)
+├── spa.html         ← Mẫu spa / tiệm tóc (màu tím hồng)
+├── gara.html        ← Mẫu gara / sửa chữa (màu xanh lá)
+├── cua-hang.html    ← Mẫu cửa hàng bán lẻ (màu cam đỏ)
+└── phong-kham.html  ← Mẫu phòng khám / nha khoa (màu xanh dương)
+```
+
+Mỗi trang demo có:
+- ✅ **Demo ribbon** ở đầu trang (thông báo đây là trang mẫu + CTA đăng ký)
+- ✅ Nội dung thực tế, đầy đủ sections
+- ✅ Nút gọi điện / Zalo floating
+- ✅ Responsive mobile
+- ✅ Link "Powered by HaTinh.Vip" ở footer
+
+---
+
 ## 📞 Hỗ trợ
 
 - Zalo: [https://zalo.me/0888140868](https://zalo.me/0888140868)
 - Cloudflare Docs: [https://developers.cloudflare.com/pages/functions/](https://developers.cloudflare.com/pages/functions/)
-- Supabase Docs: [https://supabase.com/docs](https://supabase.com/docs).
+- Supabase Docs: [https://supabase.com/docs](https://supabase.com/docs)

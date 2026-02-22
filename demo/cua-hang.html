@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cửa Hàng Thanh Hương – Hà Tĩnh</title>
+  <meta name="description" content="Cửa Hàng Thanh Hương – Hàng gia dụng, thực phẩm, tiêu dùng tại Hà Tĩnh. Giá tốt mỗi ngày." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:#ea580c; --primary2:#c2410c; --accent:#fed7aa;
+      --dark:#1c0a00; --dark2:#431407; --light:#fff7ed;
+      --white:#ffffff; --text:#3d1a06; --muted:#92400e; --border:#fed7aa;
+      --radius:14px; --shadow:0 6px 28px rgba(234,88,12,.10);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Be Vietnam Pro',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; line-height:1.7; }
+
+    .demo-ribbon { position:fixed; top:0; left:0; right:0; z-index:9999; background:linear-gradient(90deg,#1a1a2e,#0f3460); color:#fff; text-align:center; padding:9px 16px; font-size:.82rem; font-weight:700; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; }
+    .demo-ribbon span { color:#f5a623; }
+    .demo-ribbon a { background:#e02020; color:#fff; padding:5px 16px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.8rem; white-space:nowrap; }
+    .ribbon-close { background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1rem; }
+
+    nav { position:sticky; top:42px; z-index:100; background:rgba(28,10,0,.97); backdrop-filter:blur(10px); padding:14px 20px; }
+    .nav-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .logo { font-size:1.28rem; font-weight:900; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:10px; }
+    .logo-sub { font-size:.68rem; font-weight:500; color:rgba(255,255,255,.4); display:block; margin-top:-4px; }
+    .nav-cta { background:var(--primary); color:var(--white); font-weight:800; font-size:.85rem; padding:10px 22px; border-radius:100px; text-decoration:none; transition:.2s; display:flex; align-items:center; gap:7px; }
+    .nav-cta:hover { background:var(--primary2); }
+
+    /* PROMO BANNER */
+    .promo-bar { background:var(--primary); padding:11px 20px; text-align:center; color:var(--white); font-size:.88rem; font-weight:700; }
+    .promo-bar span { background:rgba(0,0,0,.2); padding:4px 14px; border-radius:100px; margin:0 6px; }
+
+    #hero { background:linear-gradient(160deg,var(--dark) 0%,#7c2d12 50%,var(--dark2) 100%); padding:70px 20px 60px; text-align:center; position:relative; overflow:hidden; }
+    #hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 65% 30%,rgba(254,215,170,.15) 0%,transparent 60%); }
+    .hero-inner { position:relative; z-index:1; max-width:760px; margin:0 auto; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
+    #hero h1 { font-size:clamp(1.9rem,5vw,3rem); font-weight:900; color:var(--white); line-height:1.2; margin-bottom:14px; }
+    #hero h1 span { color:var(--accent); }
+    .hero-desc { color:rgba(255,255,255,.72); font-size:1rem; margin-bottom:28px; }
+    .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--primary); color:var(--white); font-weight:800; font-size:1rem; padding:14px 32px; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 18px rgba(234,88,12,.4); transition:.2s; }
+    .btn-primary:hover { background:var(--primary2); transform:translateY(-2px); }
+    .btn-ghost { background:rgba(255,255,255,.1); color:var(--white); font-weight:700; font-size:1rem; padding:13px 26px; border-radius:100px; text-decoration:none; border:1.5px solid rgba(255,255,255,.22); display:inline-flex; align-items:center; gap:8px; transition:.2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.18); }
+
+    section { padding:60px 20px; }
+    .container { max-width:960px; margin:0 auto; }
+    .section-tag { display:inline-block; background:rgba(234,88,12,.1); color:var(--primary); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:5px 14px; border-radius:100px; margin-bottom:12px; }
+    .section-title { font-size:clamp(1.4rem,3.5vw,2rem); font-weight:800; color:var(--dark); margin-bottom:10px; }
+    .section-sub { color:var(--muted); font-size:.95rem; margin-bottom:32px; }
+
+    /* PROMO CARDS */
+    #promos { background:var(--light); }
+    .promo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
+    .promo-card { background:var(--white); border-radius:var(--radius); overflow:hidden; border:1.5px solid var(--border); transition:.2s; }
+    .promo-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .promo-img { height:140px; display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative; }
+    .promo-tag-sale { position:absolute; top:10px; right:10px; background:#ef4444; color:#fff; font-size:.72rem; font-weight:800; padding:3px 10px; border-radius:100px; }
+    .promo-body { padding:14px; }
+    .promo-cat { font-size:.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+    .promo-name { font-size:.95rem; font-weight:800; color:var(--dark); margin-bottom:6px; }
+    .promo-price-row { display:flex; align-items:center; gap:8px; }
+    .promo-price { font-size:1.05rem; font-weight:900; color:var(--primary); }
+    .promo-old { font-size:.82rem; color:var(--muted); text-decoration:line-through; }
+
+    /* CATEGORIES */
+    #categories { background:var(--white); }
+    .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:14px; }
+    .cat-card { background:var(--light); border:1.5px solid var(--border); border-radius:var(--radius); padding:22px 16px; text-align:center; cursor:default; transition:.2s; }
+    .cat-card:hover { border-color:var(--primary); background:rgba(234,88,12,.05); }
+    .cat-emoji { font-size:2.5rem; margin-bottom:8px; display:block; }
+    .cat-name { font-size:.9rem; font-weight:800; color:var(--dark); }
+
+    /* DELIVERY */
+    #delivery { background:var(--light); }
+    .delivery-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
+    .delivery-card { background:var(--white); border-radius:var(--radius); padding:20px; border:1.5px solid var(--border); display:flex; align-items:flex-start; gap:14px; }
+    .delivery-icon { font-size:2rem; min-width:40px; text-align:center; }
+    .delivery-title { font-size:.95rem; font-weight:800; color:var(--dark); margin-bottom:4px; }
+    .delivery-desc { font-size:.83rem; color:var(--muted); }
+
+    /* INFO */
+    #info-section { background:var(--white); }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .info-card { background:var(--light); border-radius:var(--radius); padding:22px; border:1.5px solid var(--border); }
+    .info-card h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .info-row { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+    .info-row:last-child { border-bottom:none; }
+    .info-icon { color:var(--primary); width:18px; text-align:center; margin-top:3px; }
+    .info-label { font-size:.77rem; color:var(--muted); font-weight:600; }
+    .info-val { font-size:.9rem; font-weight:700; color:var(--dark); }
+    .hours-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:.88rem; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-time { color:var(--primary); font-weight:700; }
+
+    .map-placeholder { height:260px; background:linear-gradient(135deg,#fff7ed,#fed7aa); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:var(--primary); font-weight:700; }
+    .map-placeholder i { font-size:3rem; }
+
+    #cta-section { background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%); text-align:center; }
+    #cta-section h2 { font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:var(--white); margin-bottom:14px; }
+    #cta-section h2 span { color:var(--accent); }
+    #cta-section p { color:rgba(255,255,255,.7); margin-bottom:28px; }
+
+    footer { background:var(--dark); color:rgba(255,255,255,.6); padding:32px 20px; text-align:center; }
+    .footer-brand { font-size:1.4rem; font-weight:900; color:var(--white); margin-bottom:6px; }
+    .footer-copy { font-size:.78rem; color:rgba(255,255,255,.3); margin-top:6px; }
+    .powered { margin-top:8px; font-size:.75rem; color:rgba(255,255,255,.3); }
+    .powered a { color:#f5a623; text-decoration:none; font-weight:700; }
+
+    .floating-call { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+    .float-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.88rem; box-shadow:0 4px 18px rgba(0,0,0,.2); transition:.2s; }
+    .float-call { background:var(--primary); color:#fff; }
+    .float-call:hover { background:var(--primary2); transform:scale(1.04); }
+    .float-zalo { background:#0068ff; color:#fff; }
+    .float-zalo:hover { background:#0055cc; transform:scale(1.04); }
+
+    @media(max-width:640px) {
+      .info-grid { grid-template-columns:1fr; }
+      .promo-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-ribbon" id="demoRibbon">
+  <span>🎨 Đây là website mẫu demo</span> – Sẽ được tùy chỉnh theo thông tin cửa hàng của bạn.
+  <a href="../index.html#cta"><i class="fa-solid fa-bolt"></i> Đăng ký miễn phí</a>
+  <button class="ribbon-close" onclick="document.getElementById('demoRibbon').remove(); document.querySelector('nav').style.top='0'">✕</button>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <span style="font-size:1.5rem;">🛍️</span>
+      <span>Thanh Hương<span class="logo-sub">cuahangthanhhuong.hatinh.vip</span></span>
+    </a>
+    <a href="tel:0967890123" class="nav-cta"><i class="fa-solid fa-phone"></i> Đặt hàng ngay</a>
+  </div>
+</nav>
+
+<div class="promo-bar">
+  🔥 Khuyến mãi tháng này: <span>Mua 2 tặng 1</span> tất cả hàng gia dụng! &nbsp;|&nbsp; Giao hàng nội thành <span>MIỄN PHÍ</span>
+</div>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-store"></i> Cửa hàng tổng hợp Hà Tĩnh</div>
+    <h1>Mua sắm tiện lợi<br /><span>Giá tốt mỗi ngày tại Hà Tĩnh</span></h1>
+    <p class="hero-desc">Cửa hàng Thanh Hương – cung cấp hàng gia dụng, thực phẩm, tiêu dùng chất lượng. Giá cạnh tranh, giao hàng tận nơi trong nội thành.</p>
+    <div class="hero-btns">
+      <a href="tel:0967890123" class="btn-primary"><i class="fa-solid fa-phone"></i> Đặt hàng: 0967 890 123</a>
+      <a href="#promos" class="btn-ghost"><i class="fa-solid fa-tag"></i> Xem ưu đãi</a>
+    </div>
+  </div>
+</section>
+
+<section id="promos">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-tag"></i> Ưu đãi nổi bật</span>
+    <h2 class="section-title">Sản phẩm khuyến mãi hôm nay</h2>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <div class="promo-img" style="background:linear-gradient(135deg,#fff7ed,#fed7aa);">🧴<span class="promo-tag-sale">-20%</span></div>
+        <div class="promo-body"><div class="promo-cat">Gia dụng</div><div class="promo-name">Nước rửa chén Sunlight 3.8L</div><div class="promo-price-row"><span class="promo-price">75.000đ</span><span class="promo-old">95.000đ</span></div></div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-img" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">🧻<span class="promo-tag-sale">-15%</span></div>
+        <div class="promo-body"><div class="promo-cat">Vệ sinh</div><div class="promo-name">Khăn giấy Pulppy 6 cuộn</div><div class="promo-price-row"><span class="promo-price">58.000đ</span><span class="promo-old">68.000đ</span></div></div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-img" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">🥫</div>
+        <div class="promo-body"><div class="promo-cat">Thực phẩm</div><div class="promo-name">Cá hộp Chinsu 180g (lốc 4)</div><div class="promo-price-row"><span class="promo-price">85.000đ</span></div></div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-img" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff);">🧹<span class="promo-tag-sale">-10%</span></div>
+        <div class="promo-body"><div class="promo-cat">Gia dụng</div><div class="promo-name">Chổi lau nhà tự vắt cao cấp</div><div class="promo-price-row"><span class="promo-price">135.000đ</span><span class="promo-old">150.000đ</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-grid-2"></i> Danh mục</span>
+    <h2 class="section-title">Chúng tôi có đủ mọi thứ</h2>
+    <div class="cat-grid">
+      <div class="cat-card"><span class="cat-emoji">🧴</span><div class="cat-name">Gia dụng</div></div>
+      <div class="cat-card"><span class="cat-emoji">🥫</span><div class="cat-name">Thực phẩm</div></div>
+      <div class="cat-card"><span class="cat-emoji">👗</span><div class="cat-name">Thời trang</div></div>
+      <div class="cat-card"><span class="cat-emoji">📱</span><div class="cat-name">Điện tử</div></div>
+      <div class="cat-card"><span class="cat-emoji">🌿</span><div class="cat-name">Rau củ tươi</div></div>
+      <div class="cat-card"><span class="cat-emoji">🧸</span><div class="cat-name">Đồ chơi</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="delivery">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-truck"></i> Dịch vụ giao hàng</span>
+    <h2 class="section-title">Đặt hàng – Nhận tại nhà</h2>
+    <div class="delivery-row">
+      <div class="delivery-card"><div class="delivery-icon">🚴</div><div><div class="delivery-title">Giao nội thành miễn phí</div><div class="delivery-desc">Đơn từ 150.000đ – giao miễn phí trong bán kính 5km.</div></div></div>
+      <div class="delivery-card"><div class="delivery-icon">⚡</div><div><div class="delivery-title">Giao trong 2 giờ</div><div class="delivery-desc">Đặt trước 10h sáng – nhận trước 12h trưa. Hoặc 14h–20h.</div></div></div>
+      <div class="delivery-card"><div class="delivery-icon">💳</div><div><div class="delivery-title">Thanh toán linh hoạt</div><div class="delivery-desc">Tiền mặt, chuyển khoản, Zalo Pay đều được.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-clock" style="color:var(--primary)"></i> Giờ mở cửa</h3>
+        <div class="hours-row"><span>Thứ 2 – Thứ 7</span><span class="hours-time">06:30 – 21:00</span></div>
+        <div class="hours-row"><span>Chủ nhật</span><span class="hours-time">07:00 – 20:00</span></div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(234,88,12,.08);border-radius:10px;font-size:.85rem;color:var(--primary);font-weight:700;">🚴 Giao hàng: 08:00 – 20:00 mỗi ngày</div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fa-solid fa-map-pin" style="color:var(--primary)"></i> Liên hệ</h3>
+        <div class="info-row"><i class="fa-solid fa-location-dot info-icon"></i><div><div class="info-label">Địa chỉ</div><div class="info-val">33 Nguyễn Công Trứ, Phường Nam Hà, TP. Hà Tĩnh</div></div></div>
+        <div class="info-row"><i class="fa-solid fa-phone info-icon"></i><div><div class="info-label">Điện thoại / Zalo</div><div class="info-val"><a href="tel:0967890123" style="color:var(--primary);text-decoration:none;">0967 890 123</a></div></div></div>
+        <div class="info-row"><i class="fa-brands fa-facebook info-icon"></i><div><div class="info-label">Facebook</div><div class="info-val">fb.com/CuaHangThanhHuong</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="map-placeholder">
+  <i class="fa-solid fa-map-location-dot"></i>
+  <strong>33 Nguyễn Công Trứ, Nam Hà, TP. Hà Tĩnh</strong>
+  <small style="font-weight:500;">(Google Maps tích hợp khi triển khai thực tế)</small>
+</div>
+
+<section id="cta-section">
+  <div class="container">
+    <h2>Cần gì cứ gọi –<br /><span>Chúng tôi giao tận nhà!</span></h2>
+    <p>Đặt hàng qua điện thoại hoặc Zalo. Giao hàng nhanh trong nội thành Hà Tĩnh.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:0967890123" class="btn-primary"><i class="fa-solid fa-phone"></i> 0967 890 123</a>
+      <a href="https://zalo.me/0967890123" target="_blank" class="btn-ghost"><i class="fa-solid fa-comment"></i> Đặt qua Zalo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">🛍️ Cửa Hàng Thanh Hương</div>
+  <div style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:8px;">33 Nguyễn Công Trứ, TP. Hà Tĩnh &nbsp;|&nbsp; 0967 890 123</div>
+  <div class="footer-copy">© 2026 Cửa Hàng Thanh Hương.</div>
+  <div class="powered">Website miễn phí bởi <a href="../index.html" target="_blank">HaTinh.Vip</a></div>
+</footer>
+
+<div class="floating-call">
+  <a href="https://zalo.me/0967890123" target="_blank" class="float-btn float-zalo"><i class="fa-solid fa-comment-dots"></i> Zalo</a>
+  <a href="tel:0967890123" class="float-btn float-call"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+</div>
+
+<script>
+  const ribbon = document.getElementById('demoRibbon');
+  if (ribbon) { const u = () => { document.querySelector('nav').style.top = ribbon.offsetHeight+'px'; }; u(); window.addEventListener('resize',u); }
+</script>
+</body>
+</html>

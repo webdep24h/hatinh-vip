@@ -59,16 +59,40 @@ Landing page 1 trang cho **hatinh.vip** – thu thập đăng ký từ chủ qu�
 ```
 hatinh-vip/
 ├── index.html                          ← Landing page (1 file, ~41KB)
+├── mau.html                            ← Gallery xem tất cả mẫu website
 ├── admin.html                          ← Admin dashboard (~34KB)
+├── _redirects                          ← Cloudflare Pages redirect rules
 ├── wrangler.toml                       ← Cloudflare Wrangler config (deploy CLI)
 ├── README.md                           ← Tài liệu dự án (file này)
 ├── DEPLOY.md                           ← Hướng dẫn triển khai chi tiết đầy đủ
+├── demo/
+│   ├── quan-an.html                    ← Mẫu quán ăn / nhà hàng
+│   ├── cafe.html                       ← Mẫu cà phê / trà sữa
+│   ├── spa.html                        ← Mẫu spa / tiệm tóc / nail
+│   ├── gara.html                       ← Mẫu gara / sửa chữa
+│   ├── cua-hang.html                   ← Mẫu cửa hàng bán lẻ
+│   └── phong-kham.html                 ← Mẫu phòng khám / nha khoa
 └── functions/
     └── api/
         ├── registrations.js            ← Handler GET (list) + POST (create)
         └── registrations/
             └── [id].js                 ← Handler GET / PATCH / DELETE theo ID
 ```
+
+---
+
+## 🎨 Website Mẫu Demo
+
+| Mẫu | File | Màu chủ đạo |
+|---|---|---|
+| 🍜 Quán ăn / Nhà hàng | `demo/quan-an.html` | Cam đất `#d97706` |
+| ☕ Cà phê / Trà sữa | `demo/cafe.html` | Xanh navy `#1d4ed8` |
+| 💆 Spa / Tiệm tóc | `demo/spa.html` | Tím `#9333ea` |
+| 🔧 Gara / Sửa chữa | `demo/gara.html` | Xanh lá `#16a34a` |
+| 🛍️ Cửa hàng bán lẻ | `demo/cua-hang.html` | Cam đỏ `#ea580c` |
+| 🏥 Phòng khám / Nha khoa | `demo/phong-kham.html` | Xanh dương `#1d4ed8` |
+
+**Gallery tổng hợp:** `mau.html` — lọc theo ngành, preview card browser mockup.
 
 ---
 
@@ -172,11 +196,11 @@ wrangler pages secret put SUPABASE_ANON_KEY --project-name=hatinh-vip
 
 ## 📋 Chưa triển khai / Gợi ý bước tiếp theo
 
+- [x] ~~Website mẫu demo~~ → **mau.html + demo/*.html** ✅ (6 mẫu)
 - [ ] **Bảo mật Admin**: Thêm Cloudflare Access (OTP email) để chặn truy cập trái phép vào `/admin.html`
 - [ ] **Thông báo Telegram/Zalo**: Gửi tin nhắn tự động khi có đăng ký mới (xem DEPLOY.md Phần 5.2)
 - [ ] **SEO nâng cao**: Thêm `og:image`, `og:title`, sitemap.xml, schema.org
-- [ ] **Website mẫu demo**: Tạo subdomain demo `mau.hatinh.vip` cho khách xem trước
-- [ ] **Trang portfolio**: Danh sách các website đã làm cho khách
+- [ ] **Trang portfolio**: Danh sách các website đã làm cho khách hàng thực tế
 - [ ] **Trang FAQ**: Câu hỏi thường gặp riêng
 - [ ] **Rate limiting**: Chống spam form đăng ký (Cloudflare WAF hoặc IP throttle trong Function)
 - [ ] **Analytics**: Tích hợp Cloudflare Web Analytics (miễn phí, không cookie)

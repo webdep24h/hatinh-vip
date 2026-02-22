@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Góc Phố – Cà Phê Hà Tĩnh</title>
+  <meta name="description" content="Café Góc Phố – Không gian ấm cúng, cà phê ngon, wifi miễn phí tại Hà Tĩnh." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:#1d4ed8;
+      --primary2:#1e40af;
+      --accent: #f59e0b;
+      --dark:  #0f172a;
+      --dark2: #1e293b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --text:  #1e293b;
+      --muted: #64748b;
+      --border:#e2e8f0;
+      --radius:14px;
+      --shadow:0 6px 28px rgba(0,0,0,.09);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Be Vietnam Pro',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; line-height:1.7; }
+
+    /* DEMO RIBBON */
+    .demo-ribbon {
+      position:fixed; top:0; left:0; right:0; z-index:9999;
+      background:linear-gradient(90deg,#1a1a2e,#0f3460);
+      color:#fff; text-align:center; padding:9px 16px;
+      font-size:.82rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+    }
+    .demo-ribbon span { color:#f5a623; }
+    .demo-ribbon a { background:#e02020; color:#fff; padding:5px 16px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.8rem; white-space:nowrap; }
+    .demo-ribbon a:hover { background:#c01010; }
+    .ribbon-close { background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1rem; padding:0 4px; }
+
+    /* NAV */
+    nav {
+      position:sticky; top:42px; z-index:100;
+      background:rgba(15,23,42,.96); backdrop-filter:blur(10px);
+      padding:14px 20px;
+    }
+    .nav-inner { max-width:900px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:1.3rem; font-weight:900; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:8px; }
+    .logo .logo-icon { font-size:1.4rem; }
+    .logo-sub { font-size:.7rem; font-weight:500; color:rgba(255,255,255,.4); display:block; margin-top:-4px; }
+    .nav-links { display:flex; gap:20px; }
+    .nav-link { color:rgba(255,255,255,.65); font-size:.85rem; font-weight:600; text-decoration:none; transition:.2s; }
+    .nav-link:hover { color:var(--white); }
+    .nav-cta { background:var(--primary); color:var(--white); font-weight:800; font-size:.85rem; padding:9px 20px; border-radius:100px; text-decoration:none; transition:.2s; }
+    .nav-cta:hover { background:var(--primary2); }
+
+    /* HERO */
+    #hero {
+      background:linear-gradient(160deg, var(--dark) 0%, #0f1f4a 50%, #1a3a6e 100%);
+      padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+    }
+    #hero::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 60% 30%, rgba(245,158,11,.12) 0%, transparent 60%),
+                 radial-gradient(ellipse at 20% 70%, rgba(29,78,216,.20) 0%, transparent 55%);
+    }
+    .hero-inner { position:relative; z-index:1; max-width:680px; margin:0 auto; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
+    #hero h1 { font-size:clamp(1.9rem,5vw,3rem); font-weight:900; color:var(--white); line-height:1.22; margin-bottom:14px; }
+    #hero h1 span { color:var(--accent); }
+    .hero-desc { color:rgba(255,255,255,.72); font-size:1rem; margin-bottom:28px; }
+    .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--primary); color:var(--white); font-weight:800; font-size:1rem; padding:14px 32px; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 18px rgba(29,78,216,.4); transition:.2s; }
+    .btn-primary:hover { background:var(--primary2); transform:translateY(-2px); }
+    .btn-ghost { background:rgba(255,255,255,.1); color:var(--white); font-weight:700; font-size:1rem; padding:13px 26px; border-radius:100px; text-decoration:none; border:1.5px solid rgba(255,255,255,.22); display:inline-flex; align-items:center; gap:8px; transition:.2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.18); }
+    .hero-features { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
+    .feature-pill { background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:100px; color:rgba(255,255,255,.8); font-size:.82rem; font-weight:600; padding:7px 16px; display:inline-flex; align-items:center; gap:6px; }
+
+    /* SECTIONS */
+    section { padding:64px 20px; }
+    .container { max-width:900px; margin:0 auto; }
+    .section-tag { display:inline-block; background:rgba(29,78,216,.1); color:var(--primary); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:5px 14px; border-radius:100px; margin-bottom:12px; }
+    .section-title { font-size:clamp(1.4rem,3.5vw,2rem); font-weight:800; color:var(--dark); margin-bottom:10px; }
+    .section-sub { color:var(--muted); font-size:.95rem; margin-bottom:32px; }
+
+    /* ABOUT */
+    #about { background:var(--light); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; }
+    .about-img { border-radius:var(--radius); aspect-ratio:4/3; background:linear-gradient(135deg,#e0f2fe,#bae6fd); display:flex; align-items:center; justify-content:center; font-size:6rem; }
+    .about-text h3 { font-size:1.25rem; font-weight:800; color:var(--dark); margin-bottom:12px; }
+    .about-text p { color:var(--muted); font-size:.93rem; line-height:1.75; margin-bottom:14px; }
+    .about-chips { display:flex; flex-wrap:wrap; gap:8px; }
+    .chip { display:inline-flex; align-items:center; gap:6px; background:var(--white); border:1.5px solid var(--border); border-radius:100px; padding:6px 14px; font-size:.82rem; font-weight:700; }
+
+    /* MENU */
+    #menu { background:var(--white); }
+    .menu-cats { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+    .menu-cat-btn { padding:7px 18px; border-radius:100px; border:2px solid var(--border); background:var(--white); font-family:'Be Vietnam Pro',sans-serif; font-size:.83rem; font-weight:700; cursor:pointer; transition:.2s; }
+    .menu-cat-btn.active, .menu-cat-btn:hover { background:var(--primary); border-color:var(--primary); color:var(--white); }
+    .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
+    .menu-card { background:var(--light); border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:.2s; }
+    .menu-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .menu-img { height:120px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#dbeafe,#bfdbfe); }
+    .menu-body { padding:12px 14px; }
+    .menu-name { font-size:.92rem; font-weight:800; color:var(--dark); margin-bottom:3px; }
+    .menu-desc { font-size:.78rem; color:var(--muted); margin-bottom:8px; }
+    .menu-price { font-size:.98rem; font-weight:900; color:var(--primary); }
+    .menu-hot { font-size:.7rem; font-weight:800; background:rgba(239,68,68,.1); color:#ef4444; padding:2px 8px; border-radius:100px; margin-left:6px; }
+
+    /* SPACE */
+    #space { background:var(--light); }
+    .space-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
+    .space-item { border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:4rem; transition:.2s; cursor:default; }
+    .space-item:hover { transform:scale(1.03); }
+
+    /* INFO */
+    #info-section { background:var(--white); }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .info-card { background:var(--light); border-radius:var(--radius); padding:24px; border:1.5px solid var(--border); }
+    .info-card h3 { font-size:1rem; font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:8px; color:var(--dark); }
+    .info-row { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
+    .info-row:last-child { border-bottom:none; }
+    .info-icon { color:var(--primary); width:18px; text-align:center; margin-top:3px; }
+    .info-label { font-size:.77rem; color:var(--muted); font-weight:600; }
+    .info-val { font-size:.92rem; font-weight:700; color:var(--dark); }
+    .hours-row { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--border); font-size:.88rem; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-time { color:var(--primary); font-weight:700; }
+
+    /* MAP */
+    .map-placeholder { height:260px; background:linear-gradient(135deg,#dbeafe,#bfdbfe); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:#1d4ed8; font-weight:700; }
+    .map-placeholder i { font-size:3rem; }
+
+    /* CTA */
+    #cta-section { background:linear-gradient(135deg,var(--dark) 0%,#0f1f4a 100%); text-align:center; }
+    #cta-section h2 { font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:var(--white); margin-bottom:14px; }
+    #cta-section h2 span { color:var(--accent); }
+    #cta-section p { color:rgba(255,255,255,.7); margin-bottom:28px; }
+
+    /* FOOTER */
+    footer { background:var(--dark); color:rgba(255,255,255,.6); padding:32px 20px; text-align:center; }
+    .footer-brand { font-size:1.5rem; font-weight:900; color:var(--white); margin-bottom:6px; }
+    .footer-tagline { font-size:.85rem; margin-bottom:14px; }
+    .footer-copy { font-size:.78rem; color:rgba(255,255,255,.3); }
+    .powered { margin-top:8px; font-size:.75rem; color:rgba(255,255,255,.3); }
+    .powered a { color:#f5a623; text-decoration:none; font-weight:700; }
+
+    /* FLOATING */
+    .floating-call { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+    .float-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.88rem; box-shadow:0 4px 18px rgba(0,0,0,.2); transition:.2s; }
+    .float-call { background:#22c55e; color:#fff; }
+    .float-call:hover { background:#16a34a; transform:scale(1.04); }
+    .float-zalo { background:#0068ff; color:#fff; }
+    .float-zalo:hover { background:#0055cc; transform:scale(1.04); }
+
+    @media(max-width:640px) {
+      .about-grid, .info-grid { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- DEMO RIBBON -->
+<div class="demo-ribbon" id="demoRibbon">
+  <span>🎨 Đây là website mẫu demo</span> – Website thực sẽ được tùy chỉnh theo thông tin của bạn.
+  <a href="../index.html#cta"><i class="fa-solid fa-bolt"></i> Đăng ký miễn phí</a>
+  <button class="ribbon-close" onclick="document.getElementById('demoRibbon').remove(); document.querySelector('nav').style.top='0'">✕</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-icon">☕</span>
+      <span>
+        Café Góc Phố
+        <span class="logo-sub">cafegocpho.hatinh.vip</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#space" class="nav-link">Không gian</a>
+      <a href="#info-section" class="nav-link">Liên hệ</a>
+    </div>
+    <a href="tel:0934567890" class="nav-cta"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-mug-hot"></i> Cà phê Hà Tĩnh</div>
+    <h1>Góc nhỏ bình yên<br /><span>Giữa lòng Hà Tĩnh</span></h1>
+    <p class="hero-desc">Cà phê rang xay tươi, không gian ấm cúng, wifi nhanh. Chỗ để bạn làm việc, trò chuyện hay chỉ ngồi thở.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary"><i class="fa-solid fa-mug-hot"></i> Xem menu đồ uống</a>
+      <a href="tel:0934567890" class="btn-ghost"><i class="fa-solid fa-phone"></i> 0934 567 890</a>
+    </div>
+    <div class="hero-features">
+      <span class="feature-pill"><i class="fa-solid fa-wifi"></i> WiFi miễn phí</span>
+      <span class="feature-pill"><i class="fa-solid fa-bolt"></i> Ổ cắm điện mọi bàn</span>
+      <span class="feature-pill"><i class="fa-solid fa-snowflake"></i> Máy lạnh mát</span>
+      <span class="feature-pill"><i class="fa-solid fa-parking"></i> Đậu xe tự do</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-tag">Về chúng tôi</span>
+        <h3>Café Góc Phố – Nơi mỗi ly đều có câu chuyện</h3>
+        <p>Mở cửa từ năm 2019, Café Góc Phố là địa điểm quen thuộc của giới trẻ Hà Tĩnh. Không gian 2 tầng, trang trí mộc mạc hiện đại, ánh sáng tự nhiên chan hòa.</p>
+        <p>Cà phê được rang xay tươi mỗi ngày từ hạt cà phê Đà Lạt và Buôn Ma Thuột — đảm bảo hương vị đậm đà, thuần khiết.</p>
+        <div class="about-chips">
+          <div class="chip">☕ Cà phê rang tươi</div>
+          <div class="chip">📚 Góc sách miễn phí</div>
+          <div class="chip">🎵 Nhạc acoustic</div>
+          <div class="chip">🐾 Pet-friendly</div>
+        </div>
+      </div>
+      <div class="about-img">☕</div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-list"></i> Thực đơn</span>
+    <h2 class="section-title">Đồ uống & thức ăn nhẹ</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-img">☕</div>
+        <div class="menu-body">
+          <div class="menu-name">Cà phê đen đá <span class="menu-hot">Bestseller</span></div>
+          <div class="menu-desc">Cà phê rang mộc, đá viên, đậm đà</div>
+          <div class="menu-price">29.000đ</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img">🥛</div>
+        <div class="menu-body">
+          <div class="menu-name">Bạc xỉu</div>
+          <div class="menu-desc">Cà phê sữa đặc truyền thống</div>
+          <div class="menu-price">35.000đ</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img">🍵</div>
+        <div class="menu-body">
+          <div class="menu-name">Trà đào cam sả <span class="menu-hot">Mới</span></div>
+          <div class="menu-desc">Trà trái cây tươi, đá lớn</div>
+          <div class="menu-price">45.000đ</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img">🧋</div>
+        <div class="menu-body">
+          <div class="menu-name">Trà sữa trân châu</div>
+          <div class="menu-desc">Trân châu đường đen, kem sữa</div>
+          <div class="menu-price">49.000đ</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img">🍫</div>
+        <div class="menu-body">
+          <div class="menu-name">Chocolate đá</div>
+          <div class="menu-desc">Bột cacao Bỉ, béo mịn</div>
+          <div class="menu-price">45.000đ</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img">🧁</div>
+        <div class="menu-body">
+          <div class="menu-name">Bánh ngọt</div>
+          <div class="menu-desc">Tiramisu, cheesecake, croissant</div>
+          <div class="menu-price">35.000đ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KHÔNG GIAN -->
+<section id="space">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-image"></i> Không gian</span>
+    <h2 class="section-title">Góc sống ảo đẹp không cần filter</h2>
+    <p class="section-sub">Tầng 1 mộc mạc, tầng 2 view phố – chỗ nào cũng chụp ảnh đẹp!</p>
+    <div class="space-grid">
+      <div class="space-item" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe); font-size:4.5rem;">🛋️</div>
+      <div class="space-item" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); font-size:4.5rem;">🪴</div>
+      <div class="space-item" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff); font-size:4.5rem;">🎵</div>
+      <div class="space-item" style="background:linear-gradient(135deg,#fff7ed,#fed7aa); font-size:4.5rem;">🌅</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info-section">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-location-dot"></i> Tìm chúng tôi</span>
+    <h2 class="section-title">Địa chỉ & Giờ mở cửa</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-clock" style="color:var(--primary)"></i> Giờ mở cửa</h3>
+        <div class="hours-row"><span>Thứ 2 – Thứ 6</span><span class="hours-time">07:00 – 22:30</span></div>
+        <div class="hours-row"><span>Thứ 7 – Chủ nhật</span><span class="hours-time">07:00 – 23:00</span></div>
+        <div style="margin-top:12px; padding:10px 14px; background:rgba(29,78,216,.08); border-radius:10px; font-size:.85rem; color:var(--primary); font-weight:700;">
+          ☕ Happy Hour: 14:00 – 16:30 – Mua 1 tặng 1!
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fa-solid fa-map-pin" style="color:var(--primary)"></i> Liên hệ</h3>
+        <div class="info-row">
+          <i class="fa-solid fa-location-dot info-icon"></i>
+          <div><div class="info-label">Địa chỉ</div><div class="info-val">12 Trần Phú, Phường Tân Giang, TP. Hà Tĩnh</div></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-phone info-icon"></i>
+          <div><div class="info-label">Điện thoại</div><div class="info-val"><a href="tel:0934567890" style="color:var(--primary);text-decoration:none;">0934 567 890</a></div></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-brands fa-instagram info-icon"></i>
+          <div><div class="info-label">Instagram</div><div class="info-val">@cafegocpho.ht</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-placeholder">
+  <i class="fa-solid fa-map-location-dot"></i>
+  <strong>12 Trần Phú, Tân Giang, TP. Hà Tĩnh</strong>
+  <small style="font-weight:500;color:#2563eb;">(Google Maps tích hợp khi triển khai thực tế)</small>
+</div>
+
+<!-- CTA -->
+<section id="cta-section">
+  <div class="container">
+    <h2>Hẹn gặp bạn tại<br /><span>Café Góc Phố!</span></h2>
+    <p>Ghé uống cà phê, làm việc, hay chỉ ngồi ngắm phố. Chỗ bình yên đang chờ bạn.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="tel:0934567890" class="btn-primary"><i class="fa-solid fa-phone"></i> 0934 567 890</a>
+      <a href="https://zalo.me/0934567890" target="_blank" class="btn-ghost"><i class="fa-solid fa-comment"></i> Zalo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">☕ Café Góc Phố</div>
+  <div class="footer-tagline">12 Trần Phú, TP. Hà Tĩnh &nbsp;|&nbsp; 0934 567 890</div>
+  <div class="footer-copy">© 2026 Café Góc Phố.</div>
+  <div class="powered">Website miễn phí bởi <a href="../index.html" target="_blank">HaTinh.Vip</a></div>
+</footer>
+
+<div class="floating-call">
+  <a href="https://zalo.me/0934567890" target="_blank" class="float-btn float-zalo"><i class="fa-solid fa-comment-dots"></i> Zalo</a>
+  <a href="tel:0934567890" class="float-btn float-call"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+</div>
+
+<script>
+  const ribbon = document.getElementById('demoRibbon');
+  if (ribbon) {
+    const update = () => { document.querySelector('nav').style.top = ribbon.offsetHeight + 'px'; };
+    update(); window.addEventListener('resize', update);
+  }
+</script>
+</body>
+</html>

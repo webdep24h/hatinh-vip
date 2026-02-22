@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nha Khoa Ánh Minh – Hà Tĩnh</title>
+  <meta name="description" content="Nha Khoa Ánh Minh – Phòng khám nha khoa chuyên nghiệp tại Hà Tĩnh. Đặt lịch khám nhanh qua Zalo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:#1d4ed8; --primary2:#1e40af; --accent:#93c5fd;
+      --dark:#0c1445; --dark2:#1e3a8a; --light:#eff6ff;
+      --white:#ffffff; --text:#1e293b; --muted:#64748b; --border:#bfdbfe;
+      --green:#16a34a; --radius:14px; --shadow:0 6px 28px rgba(29,78,216,.10);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Be Vietnam Pro',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; line-height:1.7; }
+
+    .demo-ribbon { position:fixed; top:0; left:0; right:0; z-index:9999; background:linear-gradient(90deg,#1a1a2e,#0f3460); color:#fff; text-align:center; padding:9px 16px; font-size:.82rem; font-weight:700; display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; }
+    .demo-ribbon span { color:#f5a623; }
+    .demo-ribbon a { background:#e02020; color:#fff; padding:5px 16px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.8rem; white-space:nowrap; }
+    .ribbon-close { background:none; border:none; color:rgba(255,255,255,.5); cursor:pointer; font-size:1rem; }
+
+    nav { position:sticky; top:42px; z-index:100; background:rgba(12,20,69,.97); backdrop-filter:blur(10px); padding:14px 20px; }
+    .nav-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .logo { font-size:1.25rem; font-weight:900; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:10px; }
+    .logo-sub { font-size:.67rem; font-weight:500; color:rgba(255,255,255,.4); display:block; margin-top:-4px; }
+    .nav-cta { background:var(--primary); color:var(--white); font-weight:800; font-size:.85rem; padding:10px 22px; border-radius:100px; text-decoration:none; transition:.2s; display:flex; align-items:center; gap:7px; }
+    .nav-cta:hover { background:var(--primary2); }
+
+    #hero { background:linear-gradient(155deg,var(--dark) 0%,#1e3a8a 60%,#1d4ed8 100%); padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden; }
+    #hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 25%,rgba(147,197,253,.12) 0%,transparent 60%); }
+    .hero-inner { position:relative; z-index:1; max-width:760px; margin:0 auto; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
+    #hero h1 { font-size:clamp(1.9rem,5vw,3rem); font-weight:900; color:var(--white); line-height:1.22; margin-bottom:14px; }
+    #hero h1 span { color:var(--accent); }
+    .hero-desc { color:rgba(255,255,255,.72); font-size:1rem; margin-bottom:28px; max-width:580px; margin-left:auto; margin-right:auto; }
+    .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--primary); color:var(--white); font-weight:800; font-size:1rem; padding:14px 32px; border-radius:100px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 18px rgba(29,78,216,.4); transition:.2s; }
+    .btn-primary:hover { background:var(--primary2); transform:translateY(-2px); }
+    .btn-ghost { background:rgba(255,255,255,.1); color:var(--white); font-weight:700; font-size:1rem; padding:13px 26px; border-radius:100px; text-decoration:none; border:1.5px solid rgba(255,255,255,.22); display:inline-flex; align-items:center; gap:8px; transition:.2s; }
+    .btn-ghost:hover { background:rgba(255,255,255,.18); }
+    .trust-pills { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+    .trust-pill { background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:100px; color:rgba(255,255,255,.8); font-size:.82rem; font-weight:600; padding:7px 16px; display:inline-flex; align-items:center; gap:6px; }
+
+    section { padding:60px 20px; }
+    .container { max-width:960px; margin:0 auto; }
+    .section-tag { display:inline-block; background:rgba(29,78,216,.1); color:var(--primary); font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:5px 14px; border-radius:100px; margin-bottom:12px; }
+    .section-title { font-size:clamp(1.4rem,3.5vw,2rem); font-weight:800; color:var(--dark); margin-bottom:10px; }
+    .section-sub { color:var(--muted); font-size:.95rem; margin-bottom:32px; }
+
+    /* SERVICES */
+    #services { background:var(--light); }
+    .service-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; }
+    .service-card { background:var(--white); border-radius:var(--radius); padding:22px; border:1.5px solid var(--border); transition:.2s; position:relative; overflow:hidden; }
+    .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--primary); }
+    .service-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .service-icon { font-size:2.5rem; margin-bottom:12px; display:block; }
+    .service-name { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:6px; }
+    .service-desc { font-size:.85rem; color:var(--muted); line-height:1.6; margin-bottom:12px; }
+    .service-price { font-size:.95rem; font-weight:900; color:var(--primary); }
+
+    /* DOCTOR */
+    #doctor { background:var(--white); }
+    .doctor-card { background:var(--light); border-radius:var(--radius); padding:28px; border:1.5px solid var(--border); display:flex; gap:24px; align-items:center; }
+    .doctor-avatar { width:100px; height:100px; min-width:100px; border-radius:50%; background:linear-gradient(135deg,#dbeafe,#bfdbfe); display:flex; align-items:center; justify-content:center; font-size:3.5rem; }
+    .doctor-name { font-size:1.2rem; font-weight:900; color:var(--dark); margin-bottom:4px; }
+    .doctor-title { font-size:.88rem; color:var(--primary); font-weight:700; margin-bottom:12px; }
+    .doctor-certs { display:flex; flex-wrap:wrap; gap:8px; }
+    .cert-chip { background:var(--white); border:1.5px solid var(--border); border-radius:100px; padding:5px 12px; font-size:.78rem; font-weight:700; color:var(--text); }
+
+    /* PRICE */
+    #pricing { background:var(--light); }
+    .price-table { width:100%; border-collapse:collapse; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .price-table th { background:var(--primary); color:var(--white); padding:14px 18px; text-align:left; font-size:.88rem; font-weight:800; }
+    .price-table td { padding:13px 18px; border-bottom:1px solid var(--border); font-size:.9rem; }
+    .price-table tr:last-child td { border-bottom:none; }
+    .price-table tr:nth-child(even) td { background:rgba(29,78,216,.03); }
+    .price-service { font-weight:800; color:var(--dark); }
+    .price-amount { font-weight:900; color:var(--primary); white-space:nowrap; }
+    .price-note { font-size:.78rem; color:var(--muted); }
+
+    /* BOOKING */
+    #booking { background:var(--white); }
+    .booking-card { background:var(--light); border-radius:var(--radius); padding:32px; border:1.5px solid var(--border); max-width:620px; margin:0 auto; text-align:center; }
+    .booking-card h3 { font-size:1.3rem; font-weight:900; color:var(--dark); margin-bottom:8px; }
+    .booking-card > p { color:var(--muted); margin-bottom:22px; font-size:.93rem; }
+    .booking-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:16px; }
+    .booking-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:12px; font-weight:800; font-size:.95rem; text-decoration:none; transition:.2s; }
+    .booking-zalo { background:#0068ff; color:#fff; }
+    .booking-zalo:hover { background:#0055cc; transform:translateY(-2px); }
+    .booking-phone { background:var(--primary); color:#fff; }
+    .booking-phone:hover { background:var(--primary2); transform:translateY(-2px); }
+    .booking-note { font-size:.82rem; color:var(--muted); }
+    .booking-note strong { color:var(--green); }
+
+    /* INFO */
+    #info-section { background:var(--light); }
+    .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .info-card { background:var(--white); border-radius:var(--radius); padding:22px; border:1.5px solid var(--border); }
+    .info-card h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+    .info-row { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+    .info-row:last-child { border-bottom:none; }
+    .info-icon { color:var(--primary); width:18px; text-align:center; margin-top:3px; }
+    .info-label { font-size:.77rem; color:var(--muted); font-weight:600; }
+    .info-val { font-size:.9rem; font-weight:700; color:var(--dark); }
+    .hours-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:.88rem; }
+    .hours-row:last-child { border-bottom:none; }
+    .hours-time { color:var(--primary); font-weight:700; }
+
+    .map-placeholder { height:260px; background:linear-gradient(135deg,#eff6ff,#dbeafe); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:var(--primary); font-weight:700; }
+    .map-placeholder i { font-size:3rem; }
+
+    #cta-section { background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%); text-align:center; }
+    #cta-section h2 { font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:900; color:var(--white); margin-bottom:14px; }
+    #cta-section h2 span { color:var(--accent); }
+    #cta-section p { color:rgba(255,255,255,.7); margin-bottom:28px; }
+
+    footer { background:var(--dark); color:rgba(255,255,255,.6); padding:32px 20px; text-align:center; }
+    .footer-brand { font-size:1.4rem; font-weight:900; color:var(--white); margin-bottom:6px; }
+    .footer-copy { font-size:.78rem; color:rgba(255,255,255,.3); margin-top:6px; }
+    .powered { margin-top:8px; font-size:.75rem; color:rgba(255,255,255,.3); }
+    .powered a { color:#f5a623; text-decoration:none; font-weight:700; }
+
+    .floating-call { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+    .float-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:100px; text-decoration:none; font-weight:800; font-size:.88rem; box-shadow:0 4px 18px rgba(0,0,0,.2); transition:.2s; }
+    .float-zalo { background:#0068ff; color:#fff; }
+    .float-zalo:hover { background:#0055cc; transform:scale(1.04); }
+    .float-call { background:var(--primary); color:#fff; }
+    .float-call:hover { background:var(--primary2); transform:scale(1.04); }
+
+    @media(max-width:640px) {
+      .info-grid { grid-template-columns:1fr; }
+      .doctor-card { flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-ribbon" id="demoRibbon">
+  <span>🎨 Đây là website mẫu demo</span> – Sẽ được cá nhân hóa theo thông tin phòng khám của bạn.
+  <a href="../index.html#cta"><i class="fa-solid fa-bolt"></i> Đăng ký miễn phí</a>
+  <button class="ribbon-close" onclick="document.getElementById('demoRibbon').remove(); document.querySelector('nav').style.top='0'">✕</button>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <span style="font-size:1.5rem;">🦷</span>
+      <span>Nha Khoa Ánh Minh<span class="logo-sub">nhakhoaanhminh.hatinh.vip</span></span>
+    </a>
+    <a href="https://zalo.me/0978901234" target="_blank" class="nav-cta"><i class="fa-solid fa-calendar-check"></i> Đặt lịch ngay</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-tooth"></i> Nha khoa chuyên nghiệp Hà Tĩnh</div>
+    <h1>Nụ cười tự tin<br /><span>Bắt đầu từ hôm nay</span></h1>
+    <p class="hero-desc">Nha Khoa Ánh Minh – dịch vụ chăm sóc răng miệng toàn diện, trang thiết bị hiện đại, đội ngũ bác sĩ có chuyên môn cao.</p>
+    <div class="hero-btns">
+      <a href="https://zalo.me/0978901234" target="_blank" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> Đặt lịch khám</a>
+      <a href="tel:0978901234" class="btn-ghost"><i class="fa-solid fa-phone"></i> 0978 901 234</a>
+    </div>
+    <div class="trust-pills">
+      <span class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Thiết bị khử khuẩn chuẩn BYT</span>
+      <span class="trust-pill"><i class="fa-solid fa-user-doctor"></i> Bác sĩ có chứng chỉ hành nghề</span>
+      <span class="trust-pill"><i class="fa-solid fa-tooth"></i> X-quang kỹ thuật số</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-stethoscope"></i> Dịch vụ</span>
+    <h2 class="section-title">Dịch vụ nha khoa</h2>
+    <p class="section-sub">Đầy đủ các dịch vụ chăm sóc răng miệng – từ cơ bản đến thẩm mỹ.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="service-icon">🔬</span>
+        <div class="service-name">Khám & Tư vấn</div>
+        <div class="service-desc">Kiểm tra tổng quát sức khỏe răng miệng, chụp X-quang, lập kế hoạch điều trị.</div>
+        <div class="service-price">Miễn phí lần đầu</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧽</span>
+        <div class="service-name">Lấy cao răng</div>
+        <div class="service-desc">Làm sạch mảng bám, cao răng bằng sóng siêu âm. Hơi thở thơm tho, nướu khỏe.</div>
+        <div class="service-price">Từ 200.000đ</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🦷</span>
+        <div class="service-name">Trám răng</div>
+        <div class="service-desc">Trám composite thẩm mỹ, cùng màu răng, bền đẹp. Không đau, không khoan nhiều.</div>
+        <div class="service-price">Từ 300.000đ/răng</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">👑</span>
+        <div class="service-name">Bọc răng sứ</div>
+        <div class="service-desc">Răng sứ Zirconia cao cấp, thẩm mỹ tự nhiên, bền 15–20 năm.</div>
+        <div class="service-price">Từ 2.500.000đ/răng</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <div class="service-name">Tẩy trắng răng</div>
+        <div class="service-desc">Tẩy trắng laser hoặc máng, trắng sáng tối đa 8 tone sau 1 buổi.</div>
+        <div class="service-price">Từ 1.500.000đ</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔩</span>
+        <div class="service-name">Cấy ghép Implant</div>
+        <div class="service-desc">Cấy ghép răng Implant – phục hồi răng mất vĩnh viễn, không ảnh hưởng răng bên cạnh.</div>
+        <div class="service-price">Từ 15.000.000đ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="doctor">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-user-doctor"></i> Đội ngũ</span>
+    <h2 class="section-title">Bác sĩ của chúng tôi</h2>
+    <div class="doctor-card">
+      <div class="doctor-avatar">👨‍⚕️</div>
+      <div>
+        <div class="doctor-name">BS.CKI Nguyễn Ánh Minh</div>
+        <div class="doctor-title">Bác sĩ Nha khoa – Chuyên khoa I Răng Hàm Mặt</div>
+        <div class="doctor-certs">
+          <span class="cert-chip">🎓 ĐH Y Hà Nội</span>
+          <span class="cert-chip">📋 CKI Răng Hàm Mặt</span>
+          <span class="cert-chip">✅ Chứng chỉ hành nghề BYT</span>
+          <span class="cert-chip">⏱ 10 năm kinh nghiệm</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-tag"></i> Bảng giá tham khảo</span>
+    <h2 class="section-title">Giá dịch vụ</h2>
+    <p class="section-sub">Giá thực tế tùy theo tình trạng răng. Khám miễn phí để được tư vấn chính xác.</p>
+    <table class="price-table">
+      <thead><tr><th>Dịch vụ</th><th>Giá tham khảo</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td class="price-service">Khám tổng quát + X-quang</td><td class="price-amount">Miễn phí</td><td class="price-note">Lần đầu đến</td></tr>
+        <tr><td class="price-service">Lấy cao răng (2 hàm)</td><td class="price-amount">200.000đ</td><td class="price-note">Gồm đánh bóng</td></tr>
+        <tr><td class="price-service">Trám răng composite</td><td class="price-amount">300.000 – 500.000đ</td><td class="price-note">Tùy vị trí và kích thước</td></tr>
+        <tr><td class="price-service">Nhổ răng thường</td><td class="price-amount">200.000 – 400.000đ</td><td class="price-note">Gây tê tại chỗ</td></tr>
+        <tr><td class="price-service">Nhổ răng khôn</td><td class="price-amount">500.000 – 1.500.000đ</td><td class="price-note">Tùy độ khó</td></tr>
+        <tr><td class="price-service">Tẩy trắng răng</td><td class="price-amount">1.500.000 – 3.000.000đ</td><td class="price-note">Laser hoặc máng</td></tr>
+        <tr><td class="price-service">Bọc răng sứ Zirconia</td><td class="price-amount">2.500.000đ/răng</td><td class="price-note">BH 5 năm</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="container">
+    <div class="booking-card">
+      <h3>📅 Đặt lịch khám online</h3>
+      <p>Đặt lịch trước qua Zalo để được bác sĩ phục vụ đúng giờ, không phải chờ đợi lâu.</p>
+      <div class="booking-btns">
+        <a href="https://zalo.me/0978901234" target="_blank" class="booking-btn booking-zalo"><i class="fa-solid fa-comment-dots"></i> Đặt lịch qua Zalo</a>
+        <a href="tel:0978901234" class="booking-btn booking-phone"><i class="fa-solid fa-phone"></i> Gọi: 0978 901 234</a>
+      </div>
+      <p class="booking-note">Lần đầu khám – <strong>miễn phí tư vấn và X-quang!</strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="info-section">
+  <div class="container">
+    <span class="section-tag"><i class="fa-solid fa-location-dot"></i> Địa chỉ & Giờ làm việc</span>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><i class="fa-solid fa-clock" style="color:var(--primary)"></i> Lịch khám</h3>
+        <div class="hours-row"><span>Thứ 2 – Thứ 6</span><span class="hours-time">08:00 – 12:00 | 13:30 – 17:30</span></div>
+        <div class="hours-row"><span>Thứ 7</span><span class="hours-time">08:00 – 12:00 | 13:30 – 16:30</span></div>
+        <div class="hours-row"><span>Chủ nhật</span><span class="hours-time" style="color:#ef4444">Nghỉ</span></div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(29,78,216,.08);border-radius:10px;font-size:.84rem;color:var(--primary);font-weight:700;">📅 Đặt lịch trước để không phải chờ!</div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fa-solid fa-map-pin" style="color:var(--primary)"></i> Địa chỉ phòng khám</h3>
+        <div class="info-row"><i class="fa-solid fa-location-dot info-icon"></i><div><div class="info-label">Địa chỉ</div><div class="info-val">15 Hà Huy Tập, Phường Hà Huy Tập, TP. Hà Tĩnh</div></div></div>
+        <div class="info-row"><i class="fa-solid fa-phone info-icon"></i><div><div class="info-label">Điện thoại</div><div class="info-val"><a href="tel:0978901234" style="color:var(--primary);text-decoration:none;">0978 901 234</a></div></div></div>
+        <div class="info-row"><i class="fa-solid fa-circle-check info-icon" style="color:var(--green)"></i><div><div class="info-label">Chứng nhận</div><div class="info-val">Cơ sở KCB hợp pháp – Bộ Y tế cấp phép</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="map-placeholder">
+  <i class="fa-solid fa-map-location-dot"></i>
+  <strong>15 Hà Huy Tập, TP. Hà Tĩnh</strong>
+  <small style="font-weight:500;">(Google Maps tích hợp khi triển khai thực tế)</small>
+</div>
+
+<section id="cta-section">
+  <div class="container">
+    <h2>Hẹn gặp bạn tại<br /><span>Nha Khoa Ánh Minh!</span></h2>
+    <p>Đặt lịch khám hôm nay – Miễn phí tư vấn lần đầu. Nụ cười của bạn là niềm vui của chúng tôi.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://zalo.me/0978901234" target="_blank" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> Đặt lịch qua Zalo</a>
+      <a href="tel:0978901234" class="btn-ghost"><i class="fa-solid fa-phone"></i> 0978 901 234</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">🦷 Nha Khoa Ánh Minh</div>
+  <div style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:8px;">15 Hà Huy Tập, TP. Hà Tĩnh &nbsp;|&nbsp; 0978 901 234</div>
+  <div class="footer-copy">© 2026 Nha Khoa Ánh Minh – Cơ sở KCB hợp pháp.</div>
+  <div class="powered">Website miễn phí bởi <a href="../index.html" target="_blank">HaTinh.Vip</a></div>
+</footer>
+
+<div class="floating-call">
+  <a href="https://zalo.me/0978901234" target="_blank" class="float-btn float-zalo"><i class="fa-solid fa-comment-dots"></i> Đặt lịch</a>
+  <a href="tel:0978901234" class="float-btn float-call"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+</div>
+
+<script>
+  const ribbon = document.getElementById('demoRibbon');
+  if (ribbon) { const u = () => { document.querySelector('nav').style.top = ribbon.offsetHeight+'px'; }; u(); window.addEventListener('resize',u); }
+</script>
+</body>
+</html>
