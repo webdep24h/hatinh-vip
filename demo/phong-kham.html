@@ -31,7 +31,7 @@
     .nav-cta { background:var(--primary); color:var(--white); font-weight:800; font-size:.85rem; padding:10px 22px; border-radius:100px; text-decoration:none; transition:.2s; display:flex; align-items:center; gap:7px; }
     .nav-cta:hover { background:var(--primary2); }
 
-    #hero { background:linear-gradient(155deg,var(--dark) 0%,#1e3a8a 60%,#1d4ed8 100%); padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden; }
+    #hero { background:linear-gradient(155deg,rgba(8,15,40,.90) 0%,rgba(30,58,138,.85) 60%,rgba(29,78,216,.75) 100%), url('https://sspark.genspark.ai/cfimages?u1=Btg2cG6b2N08VHHdFqoWV0Dh2xWJ1iaMnBHiBHV3zC0KJwjryrNiNsphJtaVVsSp8RFKV69E6nIJLtnJ%2Fs7RXv5G8ytHYEnCme5xzeHzbUl3iGNTlo1WJ9hURl399CnZEu42&u2=rETMObpVDIMmTH%2B5&width=2560') center/cover no-repeat; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden; }
     #hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 25%,rgba(147,197,253,.12) 0%,transparent 60%); }
     .hero-inner { position:relative; z-index:1; max-width:760px; margin:0 auto; }
     .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
@@ -66,7 +66,8 @@
     /* DOCTOR */
     #doctor { background:var(--white); }
     .doctor-card { background:var(--light); border-radius:var(--radius); padding:28px; border:1.5px solid var(--border); display:flex; gap:24px; align-items:center; }
-    .doctor-avatar { width:100px; height:100px; min-width:100px; border-radius:50%; background:linear-gradient(135deg,#dbeafe,#bfdbfe); display:flex; align-items:center; justify-content:center; font-size:3.5rem; }
+    .doctor-avatar { width:100px; height:100px; min-width:100px; border-radius:50%; overflow:hidden; }
+    .doctor-avatar img { width:100%; height:100%; object-fit:cover; }
     .doctor-name { font-size:1.2rem; font-weight:900; color:var(--dark); margin-bottom:4px; }
     .doctor-title { font-size:.88rem; color:var(--primary); font-weight:700; margin-bottom:12px; }
     .doctor-certs { display:flex; flex-wrap:wrap; gap:8px; }
@@ -224,7 +225,7 @@
     <span class="section-tag"><i class="fa-solid fa-user-doctor"></i> Đội ngũ</span>
     <h2 class="section-title">Bác sĩ của chúng tôi</h2>
     <div class="doctor-card">
-      <div class="doctor-avatar">👨‍⚕️</div>
+      <div class="doctor-avatar"><img src="https://sspark.genspark.ai/cfimages?u1=%2BjV0HuGFMinu%2FMcczO92%2BZeIVUhzzXz6gSVN1IW18hQz6R5OC9urFn%2FjvOviZhVVjLBKpRiBVgSB8hXkt1g4mWtnb%2BhkZxLTCvyhKfWSARpvSWvQFbYKATZZr3f90mPXca7fSw%3D%3D&u2=lLG9hozN%2B%2B1UW47W&width=2560" alt="Bác sĩ nha khoa" loading="lazy" /></div>
       <div>
         <div class="doctor-name">BS.CKI Nguyễn Ánh Minh</div>
         <div class="doctor-title">Bác sĩ Nha khoa – Chuyên khoa I Răng Hàm Mặt</div>

@@ -67,7 +67,9 @@
 
     /* HERO */
     #hero {
-      background: linear-gradient(160deg, var(--dark) 0%, var(--dark2) 50%, #3d1f00 100%);
+      background:
+        linear-gradient(160deg, rgba(28,16,8,.85) 0%, rgba(45,26,6,.80) 50%, rgba(61,31,0,.75) 100%),
+        url('https://sspark.genspark.ai/cfimages?u1=mvY7%2FJMVHpMeGuY7%2FWVqyFuHmGXY3Rc9CdW7Pm%2FBi5bqDrS7aScxAtaWjKvbSBnErWCv7TI%2BojfVBCr7ACLtFSGuJaZlbRPFUU8D72G4IF%2Be0d%2BxwUALdSMuWTD%2B5%2BTqOQ%3D%3D&u2=F54kFBlHN1JdGZM5&width=2560') center/cover no-repeat;
       padding: 80px 20px 60px;
       text-align: center; position: relative; overflow: hidden;
     }
@@ -120,9 +122,8 @@
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; }
     .about-img {
       border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3;
-      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-      display:flex; align-items:center; justify-content:center; font-size:6rem;
     }
+    .about-img img { width:100%; height:100%; object-fit:cover; display:block; border-radius:var(--radius); }
     .about-text h3 { font-size:1.3rem; font-weight:800; color:var(--dark); margin-bottom:12px; }
     .about-text p { color:var(--muted); font-size:.95rem; line-height:1.75; margin-bottom:16px; }
     .about-chips { display:flex; flex-wrap:wrap; gap:8px; }
@@ -141,10 +142,9 @@
     }
     .menu-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
     .menu-img {
-      height:130px; display:flex; align-items:center; justify-content:center;
-      font-size:4rem;
-      background: linear-gradient(135deg, #fff8ee, #ffe9c8);
+      height:140px; overflow:hidden;
     }
+    .menu-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .menu-body { padding:14px; }
     .menu-name { font-size:.95rem; font-weight:800; color:var(--dark); margin-bottom:4px; }
     .menu-desc { font-size:.8rem; color:var(--muted); margin-bottom:10px; }
@@ -273,7 +273,9 @@
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-img">🏡</div>
+      <div class="about-img">
+        <img src="https://sspark.genspark.ai/cfimages?u1=oxpYROZ6PUfdxBtn3z%2FE5gJfjOw8KhoITFPvJFOO8S7Qwe4c5i2ajCKUrD9rPvcf8D4qDrE%2BEB8L5NEwuhuwvF1v72BWF%2BXEy45Px5nDSXg9GZhA3s%3D&u2=PWSBzYNsOOxA1IMW&width=2560" alt="Quán cơm ngôn Hà Tĩnh" loading="lazy" />
+      </div>
       <div class="about-text">
         <span class="section-tag">Về chúng tôi</span>
         <h3>Quán Hương Quê – Bếp ăn của cả gia đình</h3>
@@ -304,7 +306,7 @@
     <p class="section-sub">Cập nhật hàng ngày – gọi điện để biết món đặc biệt hôm nay!</p>
     <div class="menu-grid">
       <div class="menu-card">
-        <div class="menu-img">🍚</div>
+        <div class="menu-img"><img src="https://sspark.genspark.ai/cfimages?u1=4uWZYBND1BaH%2Bf%2Brgy4wc96dpHTbKd%2BLuA1%2BXuB5Vczyy0PwRjoyKzg6mPf5uGWOhf6Maq5pieRY9JDUv%2BCoRt5KLbDRCUrZqY7jRJywde8uxIcUH8bUEHLhKhzF&u2=qVYXvycmAqBwR49I&width=2560" alt="Cơm bình dân Hà Tĩnh" loading="lazy" /></div>
         <div class="menu-body">
           <div class="menu-name">Cơm bình dân</div>
           <div class="menu-desc">Cơm + 3 món tự chọn, canh chua ngon</div>
@@ -312,7 +314,7 @@
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img">🍲</div>
+        <div class="menu-img"><img src="https://sspark.genspark.ai/cfimages?u1=ux1DHhnUxPZnxSdIyDmjssRX96pjXR3kAn6kTP4vy0x1AaD33guAubdi%2FJwXQVxSYeZT4AydGaONgb4jqcaGOO7m%2BPQFzdrvD2XVfIlnNxWU0Uw0B4X%2BTOPE3QYL32S6TRO8w1M1xlFnxtQ5t1JU4%2Fqpl%2BsM%2BsdHw3zsY4WDpco72cV%2FiGTm%2B3mNy%2FXLBw%3D%3D&u2=Gi15mnKfdRsgZsA0&width=2560" alt="Lẩu gia đình" loading="lazy" /></div>
         <div class="menu-body">
           <div class="menu-name">Lẩu gia đình</div>
           <div class="menu-desc">Lẩu thập cẩm, rau sạch, miến, bún</div>

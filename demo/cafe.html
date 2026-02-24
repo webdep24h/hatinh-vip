@@ -58,7 +58,9 @@
 
     /* HERO */
     #hero {
-      background:linear-gradient(160deg, var(--dark) 0%, #0f1f4a 50%, #1a3a6e 100%);
+      background:
+        linear-gradient(160deg, rgba(10,15,40,.88) 0%, rgba(15,31,74,.82) 50%, rgba(26,58,110,.75) 100%),
+        url('https://sspark.genspark.ai/cfimages?u1=jq2bbeA54BrgYM4VUgoQgA%2Fk%2Fu2Ex3dYj8lE%2FzCJA7oChBlu%2BuvNVaQW4Pedh%2Fx7%2FqsYQuZf0Nb6rEFisczdaYLKlWNhUhMtaosT6pPRwatwYnMFLfKhnUlabYLVd1%2FoGX8ZjniJfCv40zVmYgG2HqwcpkxcVM862pY4FCeoHZwk%2FTSnQQ%3D%3D&u2=vAhs9JsfJslYgdJ3&width=2560') center/cover no-repeat;
       padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
     }
     #hero::before {
@@ -89,7 +91,8 @@
     /* ABOUT */
     #about { background:var(--light); }
     .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; }
-    .about-img { border-radius:var(--radius); aspect-ratio:4/3; background:linear-gradient(135deg,#e0f2fe,#bae6fd); display:flex; align-items:center; justify-content:center; font-size:6rem; }
+    .about-img { border-radius:var(--radius); aspect-ratio:4/3; overflow:hidden; }
+    .about-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .about-text h3 { font-size:1.25rem; font-weight:800; color:var(--dark); margin-bottom:12px; }
     .about-text p { color:var(--muted); font-size:.93rem; line-height:1.75; margin-bottom:14px; }
     .about-chips { display:flex; flex-wrap:wrap; gap:8px; }
@@ -103,7 +106,8 @@
     .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
     .menu-card { background:var(--light); border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:.2s; }
     .menu-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
-    .menu-img { height:120px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#dbeafe,#bfdbfe); }
+    .menu-img { height:130px; overflow:hidden; }
+    .menu-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .menu-body { padding:12px 14px; }
     .menu-name { font-size:.92rem; font-weight:800; color:var(--dark); margin-bottom:3px; }
     .menu-desc { font-size:.78rem; color:var(--muted); margin-bottom:8px; }
@@ -113,7 +117,8 @@
     /* SPACE */
     #space { background:var(--light); }
     .space-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
-    .space-item { border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-size:4rem; transition:.2s; cursor:default; }
+    .space-item { border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3; transition:.2s; cursor:default; }
+    .space-item img { width:100%; height:100%; object-fit:cover; display:block; }
     .space-item:hover { transform:scale(1.03); }
 
     /* INFO */
@@ -225,7 +230,9 @@
           <div class="chip">🐾 Pet-friendly</div>
         </div>
       </div>
-      <div class="about-img">☕</div>
+      <div class="about-img">
+        <img src="https://sspark.genspark.ai/cfimages?u1=zP06tDjqgFzlnzqha212%2F4QAYjLooA8T1Ie2Oe8Ne5%2FdZaLvPFlFQQxQChWc6af2xIBnda232bBtvFlNjhUXa1PAZymlD7%2Fec7v%2FPQRvYO5cZnYi%2Fei%2FAzAuOFYEj%2BUzMeCw%2Fm%2BTGhkvMszg7PAUtQMTk2sMSbSf2Pwz2yZlIKg9%2Fvg%2FlVSjxM9rYwBtm6vDsMJPB5Ae2T4ZI4OW8oqb53mxPAmjbg%3D%3D&u2=LjOXGxTueIkQyaPz&width=2560" alt="Quán cà phê Hà Tĩnh" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>
@@ -237,7 +244,7 @@
     <h2 class="section-title">Đồ uống & thức ăn nhẹ</h2>
     <div class="menu-grid">
       <div class="menu-card">
-        <div class="menu-img">☕</div>
+        <div class="menu-img"><img src="https://sspark.genspark.ai/cfimages?u1=StZ1r4yK2YH4gr5Bpb1TQ8Ejx%2F%2Fy2tZWhCs8Qa00QNydewYWw0SJyq9rOAFlB5YGd3q7cTH1r9Ge%2FyaDPdKAUea4xOoY9q%2FnjEO2znetXuD5mN3Uj8H3NNp9%2FukwYnI%3D&u2=jVApUGVmmf8S%2FZz2&width=2560" alt="Cà phê đen đá" loading="lazy" /></div>
         <div class="menu-body">
           <div class="menu-name">Cà phê đen đá <span class="menu-hot">Bestseller</span></div>
           <div class="menu-desc">Cà phê rang mộc, đá viên, đậm đà</div>
@@ -245,7 +252,7 @@
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img">🥛</div>
+        <div class="menu-img"><img src="https://sspark.genspark.ai/cfimages?u1=hpMQzzGTVtzlVa5%2FvTi94UMqS%2BZqyBghly4zjdfqJO0hIGLGt2KiX8JF9o450NXIfk4zL51JW5qBDA7IVE5B9J2mK%2BQVNPe%2BO8ExqA1%2BO4vDmZPqcquhfP7KPiZ6AA%3D%3D&u2=035LyoL0ENApYakV&width=2560" alt="Bạc xỉu" loading="lazy" /></div>
         <div class="menu-body">
           <div class="menu-name">Bạc xỉu</div>
           <div class="menu-desc">Cà phê sữa đặc truyền thống</div>
@@ -253,7 +260,7 @@
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img">🍵</div>
+        <div class="menu-img"><img src="https://sspark.genspark.ai/cfimages?u1=LoQwnP1PG1ZUaEH959rq48htl2ZUQ1ntgEmB8PZ9Ta%2BI92%2FopiSY%2BmBjPyEILw4%2FE9dCuPeRXH%2BRHRxy%2FsxYCq8UQrF8ShVDFBD5Z7sBQz4BiVeNLGbmXA8NQA2OndM%3D&u2=8gXAaze4pV7%2BoVSr&width=2560" alt="Trà sữa" loading="lazy" /></div>
         <div class="menu-body">
           <div class="menu-name">Trà đào cam sả <span class="menu-hot">Mới</span></div>
           <div class="menu-desc">Trà trái cây tươi, đá lớn</div>
@@ -277,7 +284,7 @@
         </div>
       </div>
       <div class="menu-card">
-        <div class="menu-img">🧁</div>
+        <div class="menu-img"><img src="https://sspark.genspark.ai/cfimages?u1=1lIxB8WhzYMuq%2F5ZAgQL%2Fo0MYa6zkBoty74nGevGKb4cbTw7Uz1LD%2BtzRviWerDgNul9R6DLZz5Xgj74IdI31vg4CiQWbTx9450kHZZjLRNtU4%2Fyh%2BccSpr9IMJbkfXA1UM0%2B7nGQrU%2FWvb0iD3quSESjVSC88M6qMKyA3oV2Ro0s6ZgbyErnO5NT7qF4G%2Fr2loOJ9qk%2BwQpdllyvEdy2302B4jbhe%2BG&u2=Nevi397jDdHU%2FtGI&width=2560" alt="Bánh ngọt" loading="lazy" /></div>
         <div class="menu-body">
           <div class="menu-name">Bánh ngọt</div>
           <div class="menu-desc">Tiramisu, cheesecake, croissant</div>
@@ -295,10 +302,10 @@
     <h2 class="section-title">Góc sống ảo đẹp không cần filter</h2>
     <p class="section-sub">Tầng 1 mộc mạc, tầng 2 view phố – chỗ nào cũng chụp ảnh đẹp!</p>
     <div class="space-grid">
-      <div class="space-item" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe); font-size:4.5rem;">🛋️</div>
-      <div class="space-item" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); font-size:4.5rem;">🪴</div>
-      <div class="space-item" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff); font-size:4.5rem;">🎵</div>
-      <div class="space-item" style="background:linear-gradient(135deg,#fff7ed,#fed7aa); font-size:4.5rem;">🌅</div>
+      <div class="space-item"><img src="https://sspark.genspark.ai/cfimages?u1=zFlFELVlcQ6NkiKCkiaXho5cOy4zXLS2TwEngzn6VOcOlPDKXDTRfxQe29emM%2B8M%2BgU4Ww8ZshIeEYxmuz7PgrIy8%2FOiRUrajiX6rLgwnDUP5UjWm6JG2r8o0vSVPQ%3D%3D&u2=PnzsESlTXDthVMlM&width=2560" alt="Không gian cà phê 1" loading="lazy" /></div>
+      <div class="space-item"><img src="https://sspark.genspark.ai/cfimages?u1=xKzHz%2FWfr8HK%2Bm%2B3SCQMice5WBHl%2BrWMSJsdcF1JyMmiSJV0FZOIFmfNI6Rom9AwlZNTXsdsy%2BZpYikrZCmeKLi7VCwO7rwU0p8oHq9GVy3HL8LhF2FwrqMpV049Uw%3D%3D&u2=VaxivCFxdyjzFDZ%2B&width=2560" alt="Không gian cà phê 2" loading="lazy" /></div>
+      <div class="space-item"><img src="https://sspark.genspark.ai/cfimages?u1=1W2N8ZfLXy0LN37NIVmhZmz8arYTaa1ElMeCIif984qUg2kpxnM7ltXg7XiVFb27O61mzRdO0%2FMnOOu5QyRa3UNzEH0x6NrXNGZcIjh6v5kTewQ5ImfdCgUDdh6JyxywdWT22ueKFe%2BdZWpIzalpXc9DOa6RISwxs%2F35u4TNNv7AWFfwLeSUFkz%2BqJca0t3C2LSAT9Rk8u%2FRktm%2BJVLPpisbIiZOjQ%3D%3D&u2=f43HquUxA9RoMfZ1&width=2560" alt="Không gian cà phê 3" loading="lazy" /></div>
+      <div class="space-item"><img src="https://sspark.genspark.ai/cfimages?u1=3pxKou%2FhXl1Lf8KhvkQjHATPDgPdC6vv8iYzLschgsG6ldeEHOPYryf2B9P5XSymikRHzBXBrT7gaNgpVklJE6YmMOTLSqJMGukW2MB0YmkfZblC%2FIkcL2a3tKylD7Aq2JapJonC%2BC5qNrviYrN63bW6ypgx8U9D4POnTwaSSjlndcf0rbumQec%3D&u2=OlsvdmoE9UbBDVjS&width=2560" alt="Không gian cà phê 4" loading="lazy" /></div>
     </div>
   </div>
 </section>

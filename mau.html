@@ -161,18 +161,22 @@
       transform-origin: top left;
       pointer-events: none;
     }
-    /* fallback thumbnail khi iframe chưa load */
     .preview-thumb {
       position: absolute;
       top: 36px; left: 0; right: 0; bottom: 0;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 10px;
-      font-size: 3.5rem;
-      background: linear-gradient(135deg, var(--from,#f0f0f0) 0%, var(--to,#e0e0e0) 100%);
+      overflow: hidden;
     }
+    .preview-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .4s;
+    }
+    .card-preview:hover .preview-thumb img { transform: scale(1.06); }
     .preview-thumb-label {
-      font-size: .78rem; font-weight: 700; color: var(--muted);
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,.65) 0%, transparent 100%);
+      font-size: .78rem; font-weight: 700; color: #fff;
       letter-spacing: .04em; text-transform: uppercase;
+      padding: 14px 12px 8px;
     }
 
     /* hover overlay */
@@ -350,8 +354,8 @@
             <div class="browser-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
             <div class="browser-addr">quanhuongque.hatinh.vip</div>
           </div>
-          <div class="preview-thumb" style="--from:#fff5e6;--to:#ffe0b2;">
-            <span>🍜</span>
+          <div class="preview-thumb">
+            <img src="https://sspark.genspark.ai/cfimages?u1=mvY7%2FJMVHpMeGuY7%2FWVqyFuHmGXY3Rc9CdW7Pm%2FBi5bqDrS7aScxAtaWjKvbSBnErWCv7TI%2BojfVBCr7ACLtFSGuJaZlbRPFUU8D72G4IF%2Be0d%2BxwUALdSMuWTD%2B5%2BTqOQ%3D%3D&u2=F54kFBlHN1JdGZM5&width=2560" alt="Quán ăn" loading="lazy" />
             <span class="preview-thumb-label">Quán ăn / Nhà hàng</span>
           </div>
           <div class="preview-overlay">
@@ -388,8 +392,8 @@
             <div class="browser-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
             <div class="browser-addr">cafegocpho.hatinh.vip</div>
           </div>
-          <div class="preview-thumb" style="--from:#f0f4ff;--to:#dbeafe;">
-            <span>☕</span>
+          <div class="preview-thumb">
+            <img src="https://sspark.genspark.ai/cfimages?u1=jq2bbeA54BrgYM4VUgoQgA%2Fk%2Fu2Ex3dYj8lE%2FzCJA7oChBlu%2BuvNVaQW4Pedh%2Fx7%2FqsYQuZf0Nb6rEFisczdaYLKlWNhUhMtaosT6pPRwatwYnMFLfKhnUlabYLVd1%2FoGX8ZjniJfCv40zVmYgG2HqwcpkxcVM862pY4FCeoHZwk%2FTSnQQ%3D%3D&u2=vAhs9JsfJslYgdJ3&width=2560" alt="Cà phê" loading="lazy" />
             <span class="preview-thumb-label">Cà phê / Trà sữa</span>
           </div>
           <div class="preview-overlay">
@@ -426,8 +430,8 @@
             <div class="browser-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
             <div class="browser-addr">spaxinhdep.hatinh.vip</div>
           </div>
-          <div class="preview-thumb" style="--from:#fdf4ff;--to:#f3e8ff;">
-            <span>💆</span>
+          <div class="preview-thumb">
+            <img src="https://sspark.genspark.ai/cfimages?u1=9vLhNBGNzpbu5yE8aXJOLrbCAPaSFJKEVc2YaAYQ%2FQS4OiIqecxyvQfvtbCZmW%2Fg9VgmzgXRv5DGYd0gdmzLASt9H4v9NHhLpdXjAwox56nsIE4t5FhFcVRDWr9Akflo&u2=wpTzHhj8Jc2UhOir&width=2560" alt="Spa" loading="lazy" />
             <span class="preview-thumb-label">Spa / Tiệm tóc</span>
           </div>
           <div class="preview-overlay">
@@ -464,8 +468,8 @@
             <div class="browser-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
             <div class="browser-addr">garaotohoangha.hatinh.vip</div>
           </div>
-          <div class="preview-thumb" style="--from:#f0fdf4;--to:#dcfce7;">
-            <span>🔧</span>
+          <div class="preview-thumb">
+            <img src="https://sspark.genspark.ai/cfimages?u1=%2FQP7PPHQANw4gDPV5UA%2BHAAI7Qp065rS%2FEphUf8h%2BiUow2V6ZEpjGYFlCSES7rLS9vMT%2F4703ul60pmxJyRA9Ad57mUUd3Hx4c3gS%2Bayrk1aWAIuAEt7oQVyDBGP&u2=94lSmrs8B0DOW3cr&width=2560" alt="Gara ô tô" loading="lazy" />
             <span class="preview-thumb-label">Gara / Sửa chữa</span>
           </div>
           <div class="preview-overlay">
@@ -502,8 +506,8 @@
             <div class="browser-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
             <div class="browser-addr">cuahangthanhhuong.hatinh.vip</div>
           </div>
-          <div class="preview-thumb" style="--from:#fff7ed;--to:#fed7aa;">
-            <span>🛍️</span>
+          <div class="preview-thumb">
+            <img src="https://sspark.genspark.ai/cfimages?u1=JiKQpRSc2cXC%2FIMyRcRpDwU9drsZH%2FugcCnlcjV0OlpUUvmWLjAyuv34fabWvoFEew27usAbOw8xHt8vRTjFQoL0bwHpaaNZ1jostXORrEoB6M6%2F3pOgLIJlKgRiUiGO4A%3D%3D&u2=JXPHIOiIgp6M5qgo&width=2560" alt="Cửa hàng" loading="lazy" />
             <span class="preview-thumb-label">Cửa hàng bán lẻ</span>
           </div>
           <div class="preview-overlay">
@@ -540,8 +544,8 @@
             <div class="browser-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
             <div class="browser-addr">nhakhoaanhminh.hatinh.vip</div>
           </div>
-          <div class="preview-thumb" style="--from:#eff6ff;--to:#dbeafe;">
-            <span>🏥</span>
+          <div class="preview-thumb">
+            <img src="https://sspark.genspark.ai/cfimages?u1=Btg2cG6b2N08VHHdFqoWV0Dh2xWJ1iaMnBHiBHV3zC0KJwjryrNiNsphJtaVVsSp8RFKV69E6nIJLtnJ%2Fs7RXv5G8ytHYEnCme5xzeHzbUl3iGNTlo1WJ9hURl399CnZEu42&u2=rETMObpVDIMmTH%2B5&width=2560" alt="Phòng khám" loading="lazy" />
             <span class="preview-thumb-label">Phòng khám / Nha khoa</span>
           </div>
           <div class="preview-overlay">

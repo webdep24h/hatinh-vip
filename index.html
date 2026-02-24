@@ -94,8 +94,10 @@
 
     /* ===== HERO ===== */
     #hero {
-      background: linear-gradient(145deg, var(--dark) 0%, var(--dark2) 40%, var(--mid) 100%);
-      padding: 120px 20px 80px;
+      background:
+        linear-gradient(145deg, rgba(20,8,4,.82) 0%, rgba(35,10,6,.78) 40%, rgba(60,20,8,.70) 100%),
+        url('images/thanhsen.jpg') center/cover no-repeat;
+      padding: 130px 20px 90px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -103,8 +105,8 @@
     #hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 60% 30%, rgba(245,166,35,.12) 0%, transparent 60%),
-                  radial-gradient(ellipse at 20% 80%, rgba(224,32,32,.10) 0%, transparent 55%);
+      background: radial-gradient(ellipse at 60% 30%, rgba(245,166,35,.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(224,32,32,.12) 0%, transparent 55%);
       pointer-events: none;
     }
     .hero-badge {
@@ -646,11 +648,16 @@
     }
     .demo-preview-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
     .demo-preview-thumb {
-      height: 130px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 4rem;
+      height: 160px;
+      overflow: hidden;
       position: relative;
     }
+    .demo-preview-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+    .demo-preview-card:hover .demo-preview-thumb img { transform: scale(1.07); }
     .demo-preview-body { padding: 14px 16px; }
     .demo-preview-type {
       font-size: .72rem; font-weight: 700; text-transform: uppercase;
@@ -974,8 +981,9 @@
 
     <div class="demo-preview-grid">
       <a href="demo/quan-an.html" target="_blank" class="demo-preview-card">
-        <div class="demo-preview-thumb" style="background:linear-gradient(135deg,#fff5e6,#ffe0b2);">
-          🍜<span class="demo-preview-badge">Xem demo</span>
+        <div class="demo-preview-thumb">
+          <img src="https://sspark.genspark.ai/cfimages?u1=mvY7%2FJMVHpMeGuY7%2FWVqyFuHmGXY3Rc9CdW7Pm%2FBi5bqDrS7aScxAtaWjKvbSBnErWCv7TI%2BojfVBCr7ACLtFSGuJaZlbRPFUU8D72G4IF%2Be0d%2BxwUALdSMuWTD%2B5%2BTqOQ%3D%3D&u2=F54kFBlHN1JdGZM5&width=2560" alt="Quán ăn Hà Tĩnh" loading="lazy" />
+          <span class="demo-preview-badge">Xem demo</span>
         </div>
         <div class="demo-preview-body">
           <div class="demo-preview-type" style="color:#d97706;">Quán ăn / Nhà hàng</div>
@@ -984,8 +992,9 @@
         </div>
       </a>
       <a href="demo/cafe.html" target="_blank" class="demo-preview-card">
-        <div class="demo-preview-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">
-          ☕<span class="demo-preview-badge">Xem demo</span>
+        <div class="demo-preview-thumb">
+          <img src="https://sspark.genspark.ai/cfimages?u1=jq2bbeA54BrgYM4VUgoQgA%2Fk%2Fu2Ex3dYj8lE%2FzCJA7oChBlu%2BuvNVaQW4Pedh%2Fx7%2FqsYQuZf0Nb6rEFisczdaYLKlWNhUhMtaosT6pPRwatwYnMFLfKhnUlabYLVd1%2FoGX8ZjniJfCv40zVmYgG2HqwcpkxcVM862pY4FCeoHZwk%2FTSnQQ%3D%3D&u2=vAhs9JsfJslYgdJ3&width=2560" alt="Quán café Hà Tĩnh" loading="lazy" />
+          <span class="demo-preview-badge">Xem demo</span>
         </div>
         <div class="demo-preview-body">
           <div class="demo-preview-type" style="color:#2563eb;">Cà phê / Trà sữa</div>
@@ -994,8 +1003,9 @@
         </div>
       </a>
       <a href="demo/spa.html" target="_blank" class="demo-preview-card">
-        <div class="demo-preview-thumb" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff);">
-          💆<span class="demo-preview-badge">Xem demo</span>
+        <div class="demo-preview-thumb">
+          <img src="https://sspark.genspark.ai/cfimages?u1=9vLhNBGNzpbu5yE8aXJOLrbCAPaSFJKEVc2YaAYQ%2FQS4OiIqecxyvQfvtbCZmW%2Fg9VgmzgXRv5DGYd0gdmzLASt9H4v9NHhLpdXjAwox56nsIE4t5FhFcVRDWr9Akflo&u2=wpTzHhj8Jc2UhOir&width=2560" alt="Spa tiệm nail Việt Nam" loading="lazy" />
+          <span class="demo-preview-badge">Xem demo</span>
         </div>
         <div class="demo-preview-body">
           <div class="demo-preview-type" style="color:#9333ea;">Spa / Tiệm tóc</div>
@@ -1004,8 +1014,9 @@
         </div>
       </a>
       <a href="demo/gara.html" target="_blank" class="demo-preview-card">
-        <div class="demo-preview-thumb" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
-          🔧<span class="demo-preview-badge">Xem demo</span>
+        <div class="demo-preview-thumb">
+          <img src="https://sspark.genspark.ai/cfimages?u1=%2FQP7PPHQANw4gDPV5UA%2BHAAI7Qp065rS%2FEphUf8h%2BiUow2V6ZEpjGYFlCSES7rLS9vMT%2F4703ul60pmxJyRA9Ad57mUUd3Hx4c3gS%2Bayrk1aWAIuAEt7oQVyDBGP&u2=94lSmrs8B0DOW3cr&width=2560" alt="Gara ô tô Việt Nam" loading="lazy" />
+          <span class="demo-preview-badge">Xem demo</span>
         </div>
         <div class="demo-preview-body">
           <div class="demo-preview-type" style="color:#16a34a;">Gara / Sửa chữa</div>
@@ -1014,8 +1025,9 @@
         </div>
       </a>
       <a href="demo/cua-hang.html" target="_blank" class="demo-preview-card">
-        <div class="demo-preview-thumb" style="background:linear-gradient(135deg,#fff7ed,#fed7aa);">
-          🛍️<span class="demo-preview-badge">Xem demo</span>
+        <div class="demo-preview-thumb">
+          <img src="https://sspark.genspark.ai/cfimages?u1=JiKQpRSc2cXC%2FIMyRcRpDwU9drsZH%2FugcCnlcjV0OlpUUvmWLjAyuv34fabWvoFEew27usAbOw8xHt8vRTjFQoL0bwHpaaNZ1jostXORrEoB6M6%2F3pOgLIJlKgRiUiGO4A%3D%3D&u2=JXPHIOiIgp6M5qgo&width=2560" alt="Cửa hàng tạp hóa Việt Nam" loading="lazy" />
+          <span class="demo-preview-badge">Xem demo</span>
         </div>
         <div class="demo-preview-body">
           <div class="demo-preview-type" style="color:#ea580c;">Cửa hàng bán lẻ</div>
@@ -1024,8 +1036,9 @@
         </div>
       </a>
       <a href="demo/phong-kham.html" target="_blank" class="demo-preview-card">
-        <div class="demo-preview-thumb" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">
-          🏥<span class="demo-preview-badge">Xem demo</span>
+        <div class="demo-preview-thumb">
+          <img src="https://sspark.genspark.ai/cfimages?u1=Btg2cG6b2N08VHHdFqoWV0Dh2xWJ1iaMnBHiBHV3zC0KJwjryrNiNsphJtaVVsSp8RFKV69E6nIJLtnJ%2Fs7RXv5G8ytHYEnCme5xzeHzbUl3iGNTlo1WJ9hURl399CnZEu42&u2=rETMObpVDIMmTH%2B5&width=2560" alt="Phòng khám nha khoa Việt Nam" loading="lazy" />
+          <span class="demo-preview-badge">Xem demo</span>
         </div>
         <div class="demo-preview-body">
           <div class="demo-preview-type" style="color:#1d4ed8;">Phòng khám / Nha khoa</div>

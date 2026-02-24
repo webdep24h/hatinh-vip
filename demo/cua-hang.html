@@ -35,7 +35,7 @@
     .promo-bar { background:var(--primary); padding:11px 20px; text-align:center; color:var(--white); font-size:.88rem; font-weight:700; }
     .promo-bar span { background:rgba(0,0,0,.2); padding:4px 14px; border-radius:100px; margin:0 6px; }
 
-    #hero { background:linear-gradient(160deg,var(--dark) 0%,#7c2d12 50%,var(--dark2) 100%); padding:70px 20px 60px; text-align:center; position:relative; overflow:hidden; }
+    #hero { background:linear-gradient(160deg,rgba(18,8,4,.88) 0%,rgba(124,45,18,.82) 50%,rgba(30,15,8,.80) 100%), url('https://sspark.genspark.ai/cfimages?u1=JiKQpRSc2cXC%2FIMyRcRpDwU9drsZH%2FugcCnlcjV0OlpUUvmWLjAyuv34fabWvoFEew27usAbOw8xHt8vRTjFQoL0bwHpaaNZ1jostXORrEoB6M6%2F3pOgLIJlKgRiUiGO4A%3D%3D&u2=JXPHIOiIgp6M5qgo&width=2560') center/cover no-repeat; padding:70px 20px 60px; text-align:center; position:relative; overflow:hidden; }
     #hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 65% 30%,rgba(254,215,170,.15) 0%,transparent 60%); }
     .hero-inner { position:relative; z-index:1; max-width:760px; margin:0 auto; }
     .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:100px; color:var(--accent); font-size:.82rem; font-weight:600; padding:7px 18px; margin-bottom:18px; }
@@ -59,7 +59,8 @@
     .promo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
     .promo-card { background:var(--white); border-radius:var(--radius); overflow:hidden; border:1.5px solid var(--border); transition:.2s; }
     .promo-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
-    .promo-img { height:140px; display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative; }
+    .promo-img { height:150px; overflow:hidden; position:relative; }
+    .promo-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .promo-tag-sale { position:absolute; top:10px; right:10px; background:#ef4444; color:#fff; font-size:.72rem; font-weight:800; padding:3px 10px; border-radius:100px; }
     .promo-body { padding:14px; }
     .promo-cat { font-size:.75rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
@@ -165,19 +166,19 @@
     <h2 class="section-title">Sản phẩm khuyến mãi hôm nay</h2>
     <div class="promo-grid">
       <div class="promo-card">
-        <div class="promo-img" style="background:linear-gradient(135deg,#fff7ed,#fed7aa);">🧴<span class="promo-tag-sale">-20%</span></div>
+        <div class="promo-img"><img src="https://sspark.genspark.ai/cfimages?u1=mWX9gwP9ePIcgujo47%2B1BabXX8B%2FGdtS%2FXQz3JgbVQ5Y%2Bs8u69KpGLfzQlN%2BDlXIzXW5H5LiRMsfplMnQfD1hJpCpbXYFllej%2BlIyD3wUhqRs2CbHtHjP3BZbqLpLQ%3D%3D&u2=P7gh%2FMdc5I%2BEB9Uo&width=2560" alt="Sản phẩm" loading="lazy" /><span class="promo-tag-sale">-20%</span></div>
         <div class="promo-body"><div class="promo-cat">Gia dụng</div><div class="promo-name">Nước rửa chén Sunlight 3.8L</div><div class="promo-price-row"><span class="promo-price">75.000đ</span><span class="promo-old">95.000đ</span></div></div>
       </div>
       <div class="promo-card">
-        <div class="promo-img" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">🧻<span class="promo-tag-sale">-15%</span></div>
+        <div class="promo-img"><img src="https://sspark.genspark.ai/cfimages?u1=QpKfm16%2BclvqXT8NfV%2B3Ywdb2JXdmnpDMyvZsv5n7jOGZarxBhx9vV0y6ZMougADmGaA%2B3xodCYcgtKNBHagMDPFEVwx6Kav9Zu7y4p5eyCeACyWvakNY8iLV2GyHIfK&u2=ay99V9pnJRqSusE0&width=2560" alt="Sản phẩm" loading="lazy" /><span class="promo-tag-sale">-15%</span></div>
         <div class="promo-body"><div class="promo-cat">Vệ sinh</div><div class="promo-name">Khăn giấy Pulppy 6 cuộn</div><div class="promo-price-row"><span class="promo-price">58.000đ</span><span class="promo-old">68.000đ</span></div></div>
       </div>
       <div class="promo-card">
-        <div class="promo-img" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">🥫</div>
+        <div class="promo-img"><img src="https://sspark.genspark.ai/cfimages?u1=bfsrkAWVXLeFACXWyHSj2Sj0sQjJTW3mDVval%2Fy6WjPeo5xt5HcZTUilSnHWWc7wM6%2Fv4iUGv%2FSdRfdgLuLyeL%2FuGN69CIWLYPi4y%2Fd5EnwmgzsOHSYTt%2BM%2F%2FQ%3D%3D&u2=HL1xR42kzOfYLCyE&width=2560" alt="Sản phẩm" loading="lazy" /></div>
         <div class="promo-body"><div class="promo-cat">Thực phẩm</div><div class="promo-name">Cá hộp Chinsu 180g (lốc 4)</div><div class="promo-price-row"><span class="promo-price">85.000đ</span></div></div>
       </div>
       <div class="promo-card">
-        <div class="promo-img" style="background:linear-gradient(135deg,#fdf4ff,#f3e8ff);">🧹<span class="promo-tag-sale">-10%</span></div>
+        <div class="promo-img"><img src="https://sspark.genspark.ai/cfimages?u1=J9W6dzg6rvDwhcVB%2BDU9b3nITwEsdQQpnIAct4phnJ9V7FcdpDTHG%2FT8zxLgi%2FbFs2cuMzApDhpatjzXUWyADhB8q%2B77lfCw7EP4%2FSy2Abovko5EzWGNZPB7jJUzOH6H&u2=OHZwTxRxsnvOEDYY&width=2560" alt="Sản phẩm" loading="lazy" /><span class="promo-tag-sale">-10%</span></div>
         <div class="promo-body"><div class="promo-cat">Gia dụng</div><div class="promo-name">Chổi lau nhà tự vắt cao cấp</div><div class="promo-price-row"><span class="promo-price">135.000đ</span><span class="promo-old">150.000đ</span></div></div>
       </div>
     </div>

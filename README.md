@@ -197,6 +197,7 @@ wrangler pages secret put SUPABASE_ANON_KEY --project-name=hatinh-vip
 ## 📋 Chưa triển khai / Gợi ý bước tiếp theo
 
 - [x] ~~Website mẫu demo~~ → **mau.html + demo/*.html** ✅ (6 mẫu)
+- [x] ~~Ảnh/video thực tế~~ → **Ảnh thực tế Hà Tĩnh** ✅ cho Hero, demo pages, gallery
 - [ ] **Bảo mật Admin**: Thêm Cloudflare Access (OTP email) để chặn truy cập trái phép vào `/admin.html`
 - [ ] **Thông báo Telegram/Zalo**: Gửi tin nhắn tự động khi có đăng ký mới (xem DEPLOY.md Phần 5.2)
 - [ ] **SEO nâng cao**: Thêm `og:image`, `og:title`, sitemap.xml, schema.org
@@ -204,6 +205,26 @@ wrangler pages secret put SUPABASE_ANON_KEY --project-name=hatinh-vip
 - [ ] **Trang FAQ**: Câu hỏi thường gặp riêng
 - [ ] **Rate limiting**: Chống spam form đăng ký (Cloudflare WAF hoặc IP throttle trong Function)
 - [ ] **Analytics**: Tích hợp Cloudflare Web Analytics (miễn phí, không cookie)
+
+---
+
+## 🖼️ Ảnh thực tế (Cập nhật 2026-02-24)
+
+Toàn bộ ảnh placeholder emoji đã được thay thế bằng ảnh thực tế từ các nguồn uy tín tại Việt Nam:
+
+| Trang | Ảnh sử dụng |
+|---|---|
+| `index.html` Hero | Quán ăn thực tế tại Hà Tĩnh (VinWonders/Vinpearl) |
+| `index.html` Demo cards | 6 ảnh thực tế theo ngành |
+| `demo/quan-an.html` | Quán cơm Hà Tĩnh, menu thực tế |
+| `demo/cafe.html` | Cafe Hà Tĩnh, không gian thực tế (4 ảnh gallery) |
+| `demo/spa.html` | Tiệm nail/spa Việt Nam |
+| `demo/gara.html` | Garage ô tô chuyên nghiệp |
+| `demo/cua-hang.html` | Cửa hàng tạp hóa/tiện lợi Việt Nam |
+| `demo/phong-kham.html` | Phòng khám nha khoa hiện đại |
+| `mau.html` | Gallery preview 6 ảnh thực tế |
+
+> **Lưu ý**: Ảnh được load qua CDN proxy (sspark.genspark.ai) – có thể đổi sang self-hosted sau.
 
 ---
 
